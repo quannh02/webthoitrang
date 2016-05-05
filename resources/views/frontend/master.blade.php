@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head id="Head1">
-    
+<head id="Head1">   
     <title>
         Shop Quần Áo Nam Online</title>
     <meta name="title" content="Shop Quần Áo Nam">
     <meta name="keywords" content="Quan Ao">
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/font-awesome.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/style.css') }}">
-    <script type="text/javascript" src="{{ url('frontend/js/jquery.js') }}"></script>\
-<title>
-
-</title>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8000/webthoitrang/public/frontend/css/style.css">
+    <script type="text/javascript" src="http://localhost:8000/webthoitrang/public/frontend/js/jquery.js"></script>
+</head>
+<body>
     <div id="pheader" class="clearfix">
         <div class="pcontainer">
             <div class="logo">
@@ -29,7 +26,7 @@
             </div>
             <div class="header-phone">
                 <p class="phone">
-                    1900.6475
+                    911
                 </p>
             </div>
             <div class="account">
@@ -39,8 +36,8 @@
         <div class="dropdown">
             <span class="icon-user"></span><a href="">Đăng nhập<b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="{{ url('dangnhap') }}">Đăng nhập</a></li>
-                <li><a href="{{ url('dangky') }}">Đăng kí</a></li>
+                <li><a href="http://localhost:8000/webthoitrang/public/dangnhap">Đăng nhập</a></li>
+                <li><a href="http://localhost:8000/webthoitrang/public/dangky">Đăng kí</a></li>
             </ul>
         </div>
         
@@ -1129,5 +1126,5 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+
+</body></html>

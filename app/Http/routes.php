@@ -17,7 +17,9 @@ Route::get('/', function () {
 Route::group(['namespace' => 'frontend'], function(){
 	Route::get('index', 'HomeController@index');
 });
-Route::get('dangky', ['as' => 'dangky' , 'uses' => 'Auth\AuthController@dangky']);
-Route::post('dangky', 'Auth\AuthController@postDangky');
-Route::get('dangnhap', ['as' => 'dangnhap', 'uses' => 'Auth\AuthController@dangnhap']);
-Route::post('dangnhap', 'Auth\AuthController@postDangNhap'); 
+Route::group(['namespace' => 'Auth'], function(){
+	Route::get('dangky', ['as' => 'dangky' , 'uses' => 'AuthController@dangky']);
+	Route::post('dangky', 'Auth\AuthController@postDangky');
+	Route::get('dangnhap', ['as' => 'dangnhap', 'uses' => 'AuthController@dangnhap']);
+	Route::post('dangnhap', 'AuthController@postDangNhap'); 
+});

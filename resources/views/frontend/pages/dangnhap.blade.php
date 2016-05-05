@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
+@extends('frontend.layout')
+@section('content')
+ <div class="col-sm-offset-3 col-md-offset-3 col-md-5 col-sm-5 col-xs-12">
+    <h4>Trang đăng nhập</h4>
      <form method="post" action="{{ url('dangnhap') }}">
         {{ csrf_field() }}
         <fieldset>
@@ -19,5 +16,5 @@
         </div>
         </fieldset>
         </form>
-</body>
-</html>
+        </div>
+@endsection
