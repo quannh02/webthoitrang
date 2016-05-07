@@ -22,5 +22,6 @@ Route::group(['namespace' => 'Auth'], function(){
 	Route::post('dangky', 'Auth\AuthController@postDangky');
 	Route::get('dangnhap', ['as' => 'dangnhap', 'uses' => 'AuthController@dangnhap']);
 	Route::post('dangnhap', 'AuthController@postDangNhap');
-	Route::get('trangquanly' , 'AuthController@trangquanly'); 
+	Route::get('trangquanly' , 'AuthController@trangquanly');
+	Route::get('quanlysanpham', 'SanPhamController@index'); 
 });

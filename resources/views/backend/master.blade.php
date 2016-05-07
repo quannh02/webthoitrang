@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('public/frontend/css/font-awesome.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/bootstrap.min.js') }}"></script>
 </head>
@@ -22,7 +23,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/" style="padding-left: 10px; padding-right:40px">
+      <a class="navbar-brand" href="/">
         <img src="{{ url('public/frontend/images/bashoplogo.png') }}" style="height:70px">
       </a>
       <form class="navbar-form navbar-left col-lg-12 col-md-12 col-sm-12 col-xs-6" role="search" action="/search" method="GET" id="search-form" style="min-width: 65%; margin-left: 15%;">
@@ -31,7 +32,7 @@
           <input type="text" name="q" class="search form-control ui-autocomplete-input" placeholder="Tìm kiếm... (sản phẩm, tin tức...)" autocomplete="off">
           <input type="hidden" id="search-temp">
           <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><i class="fa fa-search" style="margin-right:5px"></i></button>
+            <button class="btn btn-default" type="submit"><i class="fa fa-search" style="margin-right:5px"></i>Tìm kiếm</button>
           </div>
         </div>
       </form>
@@ -63,26 +64,23 @@
 <ul></ul>
   <div class="container" style="margin-top:40px">
     <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+      <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
         <div style="margin-top:100px">
   <ul class="nav bs-docs-sidenav">
     <li class="active">
-      <a href="/administrators"><i class="fa fa-book" style="margin-right:10px"></i>Quản lý bài hát</a>
+      <a href="{{ url('quanlysanpham') }}"><i class="fa fa-book" style="margin-right:10px"></i>Quản lý sản phẩm</a>
     </li>
     <li class="">
-      <a href="/chords"><i class="fa fa-music" style="margin-right:10px"></i>Quản lý hợp âm</a>
+      <a href="/chords"><i class="fa fa-music" style="margin-right:10px"></i>Quản lý danh mục</a>
     </li>
     <li class="">
-      <a href="/authors"><i class="fa fa-pencil" style="margin-right:10px"></i>Quản lý tác giả</a>
+      <a href="/authors"><i class="fa fa-pencil" style="margin-right:10px"></i>Quản lý tin tức</a>
     </li>
     <li class="">
-      <a href="/singers"><i class="fa fa-microphone" style="margin-right:10px"></i>Quản lý ca sĩ</a>
+      <a href="/singers"><i class="fa fa-microphone" style="margin-right:10px"></i>Quản lý nhân viên</a>
     </li>
     <li class="">
       <a href="/user_songs"><i class="fa fa-star" style="margin-right:10px"></i>Kho VIP</a>
-    </li>
-    <li class="">
-      <a href="/messages"><i class="fa fa-envelope" style="margin-right:10px"></i>Quản lý tin nhắn</a>
     </li>
     <li class="">
       <a href="/footers/1/edit"><i class="fa fa-edit" style="margin-right:10px"></i>Quản lý footer</a>
@@ -91,19 +89,19 @@
 </div>
 
 
-      </div>
-      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+     </div>
+     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
         <div class="alert alert-info alert-dismissable">
-  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-  <h4>Thông báo mới:</h4>
-  <ul>
-    <li><b>5</b> bài hát mới cần được duyệt</li>
-    <li><b>8</b> yêu cầu hợp âm</li>
-  </ul>
-</div>
-<br>
-<hr>
-      </div>
+  			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  			<h4>Thông báo mới:</h4>
+  		<ul>
+		    <li><b>5</b> bài hát mới cần được duyệt</li>
+		    <li><b>8</b> yêu cầu hợp âm</li>
+ 		</ul>
+		</div>
+	<br>
+	<hr>
+		@yield('content')
     </div>
   </div>
   <div class="launch-modal-placeholder"></div>
