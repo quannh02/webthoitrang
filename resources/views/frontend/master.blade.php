@@ -7,14 +7,14 @@
     <meta name="keywords" content="Quan Ao">
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8000/webthoitrang/public/frontend/css/style.css">
-    <script type="text/javascript" src="http://localhost:8000/webthoitrang/public/frontend/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/style.css') }}">
+    <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
 </head>
 <body>
     <div id="pheader" class="clearfix">
         <div class="pcontainer">
             <div class="logo">
-                <a href="/">BaShop</a>
+                    <img src="{{ url('public/frontend/images/bashoplogo.png') }}" alt="">
             </div>
             <div class="form-search">
                 <form id="form-nav-search-fix" method="get" action="/tim-kiem">

@@ -68,6 +68,9 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    public function trangquanly(){
+        return view('backend.master');
+    }
     protected function validator(array $data)
     {
         return Validator::make($data, [

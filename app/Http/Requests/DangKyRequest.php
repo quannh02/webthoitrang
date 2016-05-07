@@ -24,8 +24,9 @@ class DangKyRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'password' => 'required',
+            'password_confirmation' => 'required|same:password',
         ];
     }
 }
