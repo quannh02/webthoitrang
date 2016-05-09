@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2016 at 05:19 AM
+-- Generation Time: May 09, 2016 at 09:36 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -109,6 +109,13 @@ CREATE TABLE IF NOT EXISTS `product` (
   `pro_size` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`pro_id`, `c_id`, `p_id`, `pro_name`, `pro_images`, `pro_price`, `pro_number`, `pro_color`, `pro_size`) VALUES
+(1, 1, 1, 'quangk', 'jgjskljk', 423827, 7878193, 'vang', 'S');
+
 -- --------------------------------------------------------
 
 --
@@ -135,17 +142,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   `fullname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `active` int(255) NOT NULL,
+  `role` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `fullname`, `email`, `active`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'buinguyenba', '$2y$10$EjxALpiXtQDLwVuQQNljiOcJrN98UK3OqPgz7H4apJ4iazm5oivsi', '', 'buinguyenba@gmail.com', 1, '', '2016-05-04 15:43:56', '2016-05-04 08:43:20');
+INSERT INTO `users` (`user_id`, `username`, `password`, `fullname`, `email`, `active`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(3, 'Bùi Nguyên Ba', '$2y$10$UYLs4FHleKfp/tLIyxfmJepexVjkHNqrUQsH8Ssj61yjmaqWKfDv6', '', 'buinguyenba@gmail.com', 1, 'superadmin', 'apdfWLccDvuctIG9NWEix83oNSqeXNEuVHOfhwzM', '2016-05-08 15:45:30', '2016-05-08 08:41:56'),
+(4, 'Lại Thị Nhạn', '$2y$10$K.l0pR8huKN5s9.vxbEGM.AQY4oQD4UEb4b6jzGYyo1yi9ALDXMnS', '', 'laithinhan@gmail.com', 1, 'admin', 'apdfWLccDvuctIG9NWEix83oNSqeXNEuVHOfhwzM', '2016-05-08 15:45:33', '2016-05-08 08:44:20'),
+(5, 'Phạm Văn Đức', '$2y$10$X9ugUNu2pF5QMj7bMIqgXOHYLgv911Ik/ODEMc.euUEUetJxMPgwu', '', 'phamvanduc@gmail.com', 1, 'member', 'NYtRp6pKpexQtjkfhE8tpJ1nParbv9Wd5c4f6R7vO5nT3TvE4eLbMQN6a6hz', '2016-05-09 07:26:58', '2016-05-09 00:26:58'),
+(6, 'Nguyên X', '$2y$10$zC6DJI5KGfTb8ETKRp6rGup.jbK4PQ12q1oXpu0veH5WALHjGU/ri', '', 'nguyenx@gmail.com', 1, '', 'RtxstQLxhi6xAOhYAtGGaFsEAyhWm3WvUK1ybAoK', '2016-05-08 17:27:20', '2016-05-08 09:20:41'),
+(7, 'Pham Chuan', '$2y$10$FiDfe1McB7JK1FYf3sfipOkJL48zF2TFJ3cBPL5wzWxfZ9ziqad52', '', 'phamchuan@gmail.com', 0, '', '9ZrRuZwOs5zUv5MchvmdqooGBvIHBqgS1YNbEnIw', '2016-05-08 21:03:46', '2016-05-08 21:03:46');
 
 --
 -- Indexes for dumped tables
@@ -207,7 +219,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

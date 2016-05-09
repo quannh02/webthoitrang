@@ -3,7 +3,7 @@
  <div class="col-sm-offset-3 col-md-offset-3 col-md-5 col-sm-5 col-xs-12">
     <h4>Trang đăng nhập</h4>
      <form method="post" action="{{ url('dangnhap') }}">
-        {{ csrf_field() }}
+     <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <fieldset>
         <div class="form-group">Email
             <input type="email"  class="form-control" name="email" value="{{ old('email') }}">

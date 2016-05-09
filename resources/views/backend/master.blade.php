@@ -43,7 +43,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="glyphicon glyphicon-user" style="margin-right:10px"></i>
-            vuha
+            {{ Auth::user()->username }}
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
@@ -51,7 +51,7 @@
               <a href="/auth/register/edit">
                 <i class="fa fa-info-circle" style="margin-right:10px"></i> Thông tin tài khoản
               </a>
-              <a href="/auth/logout" style="color: #d2322d" data-method="DELETE">
+              <a href="{{ url('dangxuat') }}" style="color: #d2322d" data-method="DELETE">
                 <b><i class="fa fa-sign-out" style="margin-right:10px"></i>  Đăng xuất</b>
               </a>
             </li>
@@ -77,7 +77,7 @@
       <a href="/authors"><i class="fa fa-pencil" style="margin-right:10px"></i>Quản lý tin tức</a>
     </li>
     <li class="">
-      <a href="/singers"><i class="fa fa-microphone" style="margin-right:10px"></i>Quản lý nhân viên</a>
+      <a href="{{ url('allusers') }}"><i class="fa fa-microphone" style="margin-right:10px"></i>Quản lý thành viên</a>
     </li>
     <li class="">
       <a href="/user_songs"><i class="fa fa-star" style="margin-right:10px"></i>Kho VIP</a>

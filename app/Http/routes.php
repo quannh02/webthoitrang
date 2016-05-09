@@ -19,9 +19,15 @@ Route::group(['namespace' => 'frontend'], function(){
 });
 Route::group(['namespace' => 'Auth'], function(){
 	Route::get('dangky', ['as' => 'dangky' , 'uses' => 'AuthController@dangky']);
-	Route::post('dangky', 'Auth\AuthController@postDangky');
-	Route::get('dangnhap', ['as' => 'dangnhap', 'uses' => 'AuthController@dangnhap']);
-	Route::post('dangnhap', 'AuthController@postDangNhap');
-	Route::get('trangquanly' , 'AuthController@trangquanly');
+	Route::post('dangky', 'AuthController@postDangky');
+	Route::get('dangnhap', ['as' => 'dangnhap', 'uses' => 'AuthController@getLogin']);
+	Route::post('dangnhap', 'AuthController@postLogin');
+	Route::get('dangxuat', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
+	Route::group(['middleware' => 'auth'], function(){
+		Route::get('trangquanly' , ['as' => 'trangquanly', 'uses' => 'AuthController@trangquanly']);
+	});
+	Route::group(['middleware' => 'admin'], function(){
+		Route::get('allusers', 'UserController@allUsers');
+	});
 	Route::get('quanlysanpham', 'SanPhamController@index'); 
 });

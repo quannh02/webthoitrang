@@ -4,11 +4,13 @@
     <title>
         Shop Quần Áo Nam Online</title>
     <meta name="title" content="Shop Quần Áo Nam">
+    
     <meta name="keywords" content="Quan Ao">
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/style.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
+    
 </head>
 <body>
     <div id="pheader" class="clearfix">

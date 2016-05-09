@@ -5,13 +5,21 @@
         Shop Quần Áo Nam Online</title>
     <meta name="title" content="Shop Quần Áo Nam">
     <meta name="keywords" content="Quan Ao">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ url('frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('frontend/css/font-awesome.css') }}">
-    <script type="text/javascript" src="{{ url('frontend/js/jquery.js') }}"></script>
-    <script type="text/javascript" src="{{ url('frontend/js/bootstrap.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('public/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/font-awesome.css') }}">
+    <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url('public/frontend/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+	</script>
 </head>
 <body>
 	    <div id="pheader" class="clearfix">

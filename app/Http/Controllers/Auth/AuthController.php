@@ -7,10 +7,13 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+//use Illuminate\Contracts\Auth\Authenticatable;
 use App\Http\Requests\DangKyRequest;
 use Hash;
 use App\Http\Requests\DangNhapRequest;
 use Auth;
+use Input;
+
 class AuthController extends Controller
 {
     /*
@@ -44,24 +47,30 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->username = $request->name;
+        $user->remember_token = Input::get('_token');
         $user->save();
         return redirect()->route('dangnhap');
     }
-    public function dangnhap(){
+    public function getLogin(){
         return view('frontend.pages.dangnhap');
     }
-    public function postDangNhap(DangNhapRequest $request){
+    public function postLogin(DangNhapRequest $request){
         $user = [
             'email' => $request->email,
             'password' => $request->password
         ];
         // kiểm trả tên email và password có trong database hay khong
         if(Auth::attempt($user)){
-            return redirect()->route('dangky');
+            //Auth::login($user, true);
+            return redirect()->route('trangquanly');
         } else {
+            //echo 'fail'; die();
             return redirect()->route('dangnhap');
         }
     }
+    
+    protected $redirectPath = '/trangquanly';
+    protected $redirectTo = '/trangquanly';
     /**
      * Get a validator for an incoming registration request.
      *
