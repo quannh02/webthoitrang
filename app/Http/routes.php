@@ -28,6 +28,9 @@ Route::group(['namespace' => 'Auth'], function(){
 	});
 	Route::group(['middleware' => 'admin'], function(){
 		Route::get('allusers', 'UserController@allUsers');
+		Route::get('quanlysanpham', ['as'=> 'quanlysanpham' , 'uses' => 'SanPhamController@index']);
+		Route::get('themsanpham', 'SanPhamController@viewthemsanpham');
+		Route::post('themsanpham', 'SanPhamController@themsanpham');
 	});
-	Route::get('quanlysanpham', 'SanPhamController@index'); 
+	
 });
