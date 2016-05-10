@@ -4,13 +4,22 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
     <meta name="title" content="Shop Quần Áo Nam">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords" content="Quan Ao">
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('public/frontend/css/font-awesome.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url('public/frontend/js/delete.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/bootstrap.min.js') }}"></script>
+    <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    </script>
 </head>
 <body>
   <nav class="navbar navbar-default" role="navigation">

@@ -31,6 +31,9 @@ Route::group(['namespace' => 'Auth'], function(){
 		Route::get('quanlysanpham', ['as'=> 'quanlysanpham' , 'uses' => 'SanPhamController@index']);
 		Route::get('themsanpham', 'SanPhamController@viewthemsanpham');
 		Route::post('themsanpham', 'SanPhamController@themsanpham');
+		Route::get('suasanpham/{id}', 'SanPhamController@suasanpham');
+		Route::post('suasanpham/{id}', 'SanPhamController@postsuasanpham');
+		Route::post('deletesanpham', 'SanPhamController@deletesanpham');
 	});
 	
 });

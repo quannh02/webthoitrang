@@ -52,6 +52,25 @@ class SanPhamController extends Controller
         $product->save();
         return redirect()->route('quanlysanpham');
     }
+    public function suasanpham($id){
+        $product = Product::where('pro_id', $id)->get()->first();
+        return view('backend.product.sua', compact('product'));
+    }
+
+    public function postsuasanpham(SanPhamRequest $request, $id){
+        $product = Product::findOrFail($id);
+        $product->pro_name = $request->pro_name;
+        $product->pro_price = $request->pro_price;
+        $product->pro_size = $request->pro_size;
+        $product->pro_color = $request->pro_color;
+        $product->pro_number = $request->pro_number;
+        $product->save();
+        return redirect()->route('quanlysanpham');
+    }
+    public function deletesanpham(){
+        $id = Input::get('id');
+        Product::where('pro_id', $id)->delete();
+    }
     /**
      * Show the form for creating a new resource.
      *
