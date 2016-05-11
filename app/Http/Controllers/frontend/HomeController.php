@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use Illuminate\Http\Request;
-
+use App\Product;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.master');
+        $aosominam = Product::where('c_id', 1)->orderBy('pro_id', 'desc')->take(6)->get();
+        $aothunnam = Product::where('c_id', 2)->orderBy('pro_id', 'desc')->take(6)->get();
+        return view('frontend.master', compact('aosominam', 'aothunnam'));
     }
 
     /**

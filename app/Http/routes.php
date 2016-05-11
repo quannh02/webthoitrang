@@ -26,7 +26,7 @@ Route::group(['namespace' => 'Auth'], function(){
 	Route::group(['middleware' => 'auth'], function(){
 		Route::get('trangquanly' , ['as' => 'trangquanly', 'uses' => 'AuthController@trangquanly']);
 	});
-	Route::group(['middleware' => 'admin'], function(){
+	Route::group(['middleware' => 'nhanvien'], function(){
 		Route::get('allusers', 'UserController@allUsers');
 		Route::get('quanlysanpham', ['as'=> 'quanlysanpham' , 'uses' => 'SanPhamController@index']);
 		Route::get('themsanpham', 'SanPhamController@viewthemsanpham');

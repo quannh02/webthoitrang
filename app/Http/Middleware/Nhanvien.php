@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
-class Superadmin
+class Nhanvien
 {
     /**
      * Handle an incoming request.
@@ -15,8 +16,11 @@ class Superadmin
      */
     public function handle($request, Closure $next)
     {
-        if(!Auth::check() or $request->user()->role!='superadmin') {
-            return redirect('unauthorized');
+        if(!Auth::check() or $request->user()->role!='nhanvien') {
+            if(!Auth::check() or $request->user()->role != 'admin'){
+                return redirect('unauthorized');
+            }
+            return $next($request);
         }
         return $next($request);
     }
