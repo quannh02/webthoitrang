@@ -305,15 +305,23 @@
                     <div class="productItem" dealid="11547">
                         <a href="" ecimpression=""><span class="product-img">
                             
-                            <img src="images/aokhoacnq13.jpg" style="display: block;"></span>
+                            <img  src="{{ url('public/frontend/images', $ao->pro_images) }}" style="display: block;"></span>
                             <span class="productName">
-                                {{ $ao->pro_name }}
+                                {{ $ao->pro_name }} - {{ $ao->pro_code }}
                             </span> <span class="price"><span>
                                     280.000</span>
-                                    {{ $ao->pro_price }}
+                                    {{ number_format($ao->pro_price, 0) }}
                                 </span>
                             
-                            
+                            <a href="{{url('cart')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
+                            <form method="POST" action="{{url('cart')}}">
+                                <input type="hidden" name="product_id" value="{{$ao->pro_id}}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <button type="submit" class="btn btn-fefault add-to-cart">
+                                <i class="fa fa-shopping-cart"></i>
+                            Giỏ hàng
+                            </button>
+                            </form>
                         </a>
                     </div>
                     @endforeach
@@ -321,19 +329,26 @@
                     <div class="productItem" dealid="11547">
                         <a href="" ecimpression=""><span class="product-img">
                             
-                            <img src="images/aokhoacnq13.jpg" style="display: block;"></span>
+                            <img src="{{ url('public/frontend/images', $ao->pro_images) }}" style="display: block;"></span>
                             <span class="productName">
-                                {{ $ao->pro_name }}    
+                                {{ $ao->pro_name }} - {{ $ao->pro_code }}   
                             </span> <span class="price"><span>
                                     467.000</span>
                                     {{ $ao->pro_price }}
                                 </span>
                             
-                            
+                            <a href="{{url('cart')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
+                            <form method="POST" action="{{url('cart')}}">
+                                <input type="hidden" name="product_id" value="{{ $ao->pro_id }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <button type="submit" class="btn btn-fefault add-to-cart">
+                                <i class="fa fa-shopping-cart"></i>
+                            Giỏ hàng
+                            </button>
+                            </form>
                         </a>
                     </div>
                     @endforeach
-                            
                 </div>
                 
             </div>

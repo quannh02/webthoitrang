@@ -16,6 +16,11 @@ Route::get('/', function () {
 });
 Route::group(['namespace' => 'frontend'], function(){
 	Route::get('index', 'HomeController@index');
+	Route::post('/cart', 'HomeController@cart');
+	Route::get('cartincrease/{product_id}', 'HomeController@increaseCart');
+	Route::get('cartdecrease/{product_id}', 'HomeController@decreaseCart');
+	Route::get('cartremove', 'HomeController@removeCart');
+	Route::get('/cart', 'HomeController@getCart');
 });
 Route::group(['namespace' => 'Auth'], function(){
 	Route::get('dangky', ['as' => 'dangky' , 'uses' => 'AuthController@dangky']);
