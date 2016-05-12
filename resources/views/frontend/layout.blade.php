@@ -5,21 +5,23 @@
         Shop Quần Áo Nam Online</title>
     <meta name="title" content="Shop Quần Áo Nam">
     <meta name="keywords" content="Quan Ao">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('public/frontend/css/chitiet.css') }}">
     <link rel="stylesheet" href="{{ url('public/frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/font-awesome.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url('public/frontend/js/addtocart.js')}}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {
-           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-	</script>
+	<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    </script>
 </head>
 <body>
 	    <div id="pheader" class="clearfix">
@@ -47,13 +49,13 @@
 	        <div class="dropdown">
 	            <span class="icon-user"></span><a href="">Đăng nhập<b class="caret"></b></a>
 	            <ul class="dropdown-menu">
-	                <li><a href="http://localhost:8000/webthoitrang/public/dangnhap">Đăng nhập</a></li>
-	                <li><a href="http://localhost:8000/webthoitrang/public/dangky">Đăng kí</a></li>
+	                <li><a href="{{ url('dangnhap') }}">Đăng nhập</a></li>
+	                <li><a href="{{ url('dangky') }}">Đăng kí</a></li>
 	            </ul>
 	        </div>
 	        
 	        <p class="shoppingCart">
-	            <a href="/gio-hang"><span class="icon-shopping"></span>Giỏ hàng<strong>(0)</strong></a></p>
+	            <a href="{!! url('gio-hang') !!}"><span class="icon-shopping"></span>Giỏ hàng<strong><p class="soluongsanpham"></p></strong></a></p>
 	    </div>
 
 	            </div>
@@ -68,7 +70,7 @@
 	    <div class="wap">
 	        <ul id="gnaviInfo" class="clearfix">
 	            <li class="gnavi_logo pa hide"><a href="/">
-	                <img src="images/logo.png" alt=""></a></li>
+	                <img src="{!! url('public/frontend/images/logo.png') }}" alt=""></a></li>
 	            <li class="gnavi_home pa"><a href="/">Trang chủ</a></li>
 	            
 	            <li class="pa"><a href="" class="palink">

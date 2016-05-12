@@ -313,15 +313,7 @@
                                     {{ number_format($ao->pro_price, 0) }}
                                 </span>
                             
-                            <a href="{{url('cart')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
-                            <form method="POST" action="{{url('cart')}}">
-                                <input type="hidden" name="product_id" value="{{$ao->pro_id}}">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-fefault add-to-cart">
-                                <i class="fa fa-shopping-cart"></i>
-                            Giỏ hàng
-                            </button>
-                            </form>
+                            <a href="{{url('chitiet', $ao->pro_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi tiết</a>
                         </a>
                     </div>
                     @endforeach
@@ -337,15 +329,7 @@
                                     {{ $ao->pro_price }}
                                 </span>
                             
-                            <a href="{{url('cart')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
-                            <form method="POST" action="{{url('cart')}}">
-                                <input type="hidden" name="product_id" value="{{ $ao->pro_id }}">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-fefault add-to-cart">
-                                <i class="fa fa-shopping-cart"></i>
-                            Giỏ hàng
-                            </button>
-                            </form>
+                            <a href="{{ url('chitiet', $ao->pro_id )}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi tiết</a>
                         </a>
                     </div>
                     @endforeach

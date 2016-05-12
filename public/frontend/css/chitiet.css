@@ -1,0 +1,76 @@
+#chitiet {
+    float: left;
+    margin-bottom: 44px;
+    margin-left: 12px;
+    width: 954px;
+}
+.demo {
+    float: left;
+    margin: 10px auto 0;
+}
+.zoom-section {
+    clear: both;
+    margin-top: 20px;
+}
+.imagechitiet{
+	border-radius: 5px;
+}
+.thongtin {
+    float: left;
+    margin: 22px 0px 0px 20px;
+    width: 309px;
+}
+.muahang {
+    border: 1px solid gray;
+    border-radius: 5px;
+    float: left;
+    margin-left: 32px;
+    margin-top: 60px;
+    width: 290px;
+}
+.ten_product1 {
+    color: black;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: -3px;
+}
+.giatien {
+    color: gray;
+    float: left;
+    font-size: 17px;
+    padding-left: 20px;
+    padding-top: 10px;
+    width: 291px;
+}
+.comment {
+    color: black;
+    float: left;
+    font-size: 14px;
+    margin: 10px;
+    width: 317px;
+}
+.thoigian {
+    color: black;
+    float: left;
+    line-height: 20px;
+    margin-top: 10px;
+    width: 400px;
+}
+.kichco {
+    color: black;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 20px 5px 10px;
+}
+.choncon {
+    float: left;
+    margin-left: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 280px;
+}
+.choncon select {
+    width: 100px;
+}

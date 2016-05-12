@@ -2,7 +2,6 @@
 @section('content')
 	<section id="advertisement">
 	<div class="container">
-		<img src="{{asset('images/shop/advertisement.jpg')}}" alt="" />
 		</div>
 		</section>
 		<section id="cart_items">
@@ -15,6 +14,7 @@
 		<td class="image">Sản phẩm</td>
 		<td class="description"></td>
 		<td class="price">Giá</td>
+		<td>Cỡ</td>
 		<td class="quantity">Số lượng</td>
 		<td class="total">Tổng</td>
 		<td></td>
@@ -32,6 +32,9 @@
 		</td>
 		<td class="cart_price">
 		<p>{{{ number_format($item->price, 0) }}} VNĐ</p>
+		</td>
+		<td>
+			<p>{{ strtoupper($item->options['size']) }}</p>
 		</td>
 		<td class="cart_quantity">
 		<div class="cart_quantity_button">
