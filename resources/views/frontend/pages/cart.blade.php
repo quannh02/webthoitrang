@@ -28,19 +28,19 @@
 		</td>
 		<td class="cart_description">
 		<h4><a href="">{{$item->name}}</a></h4>
-		<p>Web ID: {{$item->id}}</p>
+		<p class="idcartitem">{{$item->id}}</p>
 		</td>
 		<td class="cart_price">
 		<p>{{{ number_format($item->price, 0) }}} VNĐ</p>
 		</td>
-		<td>
+		<td class="cart_size">
 			<p>{{ strtoupper($item->options['size']) }}</p>
 		</td>
 		<td class="cart_quantity">
 		<div class="cart_quantity_button">
-		<a class="cart_quantity_up" href="{{ url('/cartincrease', $item->id )}}"> + </a>
-		<input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2">
-		<a class="cart_quantity_down" href="{{ url('/cartdecrease', $item->id ) }}"> - </a>
+		<a class="cart_quantity_up btn"> + </a>
+		<a class="cart_quantity_input" name="quantity" value="{{$item->qty}}">{{$item->qty}}</a>
+		<a class="cart_quantity_down btn"> - </a>
 		</div>
 		</td>
 		<td class="cart_total">

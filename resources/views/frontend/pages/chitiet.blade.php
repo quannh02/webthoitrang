@@ -37,7 +37,7 @@
 					<div class="kichco">Chọn kích cỡ<br>
 					</div>
 								<select class="sizechose" name="sizechose">
-                                    <option selected="selected" value="">size:</option>
+                                    <option selected value="">size:</option>
                                     @if($product->pro_sizeS != 0)                                        
                                     	<option value="s">S</option> 
                                     @endif 

@@ -1,11 +1,8 @@
 $(document).ready(function(){
-    $(".sizechose").change(function(){
-      size = $(this).find("option:selected").val();
-    });
-    $(".add-to-cart").on('click', function(){
-      var confirm_mess = confirm("Bạn có muốn thêm vào giỏ hàng không");
-      if (confirm_mess) {
-        var id = $(this).data('id');
+	$(".cart_quantity_up").on('click', function(){
+        var id = $(".idcartitem").text();
+        var sizeUp = $(".cart_size p").text();
+        var size = sizeUp.toLowerCase();
         //alert(id);
         var url = '/webthoitrang';
         $.ajax({
@@ -16,10 +13,15 @@ $(document).ready(function(){
           success:function(data){
                 var obj = $.parseJSON(data);
                 //console.log(data);
-                $('.soluongsanpham').empty();
-                $('.soluongsanpham').append(obj.count);
+    			 var soluong = $(".cart_quantity_input").text();
+        		//alert(soluong); 
+        		var intsoluong = parseInt(soluong);
+        		alert(intsoluong);
+        		$(".cart_quantity_input").empty();
+        		$(".cart_quantity_input").append(intsoluong + 1);
           }
         })
+
         .error(function(xhr, status, error) {
           alert('Có lỗi xảy ra');
         })
@@ -30,8 +32,7 @@ $(document).ready(function(){
         //   alert("Thêm giỏ hàng thành công");
         // });
         //$(this).parent().parent().parent().remove();
-      }
+       
   
     });
-
 });

@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/font-awesome.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/addtocart.js')}}"></script>
+    <script type="text/javascript" src="{{ url('public/frontend/js/plustocart.js')}}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/bootstrap.min.js')}}"></script>
 	<script>
     $.ajaxSetup({
@@ -55,7 +56,18 @@
 	        </div>
 	        
 	        <p class="shoppingCart">
-	            <a href="{!! url('gio-hang') !!}"><span class="icon-shopping"></span>Giỏ hàng<strong><p class="soluongsanpham"></p></strong></a></p>
+	            <a href="{!! url('gio-hang') !!}">
+	            	<span class="icon-shopping"></span>
+	            	Giỏ hàng
+	            	<strong>
+	            		<p class="soluongsanpham">
+	            			@if(isset($count))
+	            				{{ $count }}
+	            			@endif
+	            		</p>
+	            	</strong>
+	            </a>
+	        </p>
 	    </div>
 
 	            </div>

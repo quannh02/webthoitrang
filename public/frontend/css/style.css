@@ -30,19 +30,18 @@ a {
     line-height: 0;
     height: 0
 }
-input[type=text],
-input[type=password] {
+input {
     border: 1px #dcdcdc solid;
     color: #595959;
     margin: 0;
-    padding: 1px 1px
+    padding: 1px 1px;
+    width: 100%;
 }
-input[disabled],
-select[disabled],
-textarea[disabled] {
-    background-color: #ebebeb!important;
-    cursor: not-allowed
+textarea {
+    border: 1px #dcdcdc solid;
+    width: 100%;
 }
+
 .bold {
     font-weight: bold
 }

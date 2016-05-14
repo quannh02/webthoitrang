@@ -26,7 +26,7 @@
     float: left;
     margin-left: 32px;
     margin-top: 60px;
-    width: 290px;
+    width: 244px;
 }
 .ten_product1 {
     color: black;
@@ -60,7 +60,7 @@
 .kichco {
     color: black;
     float: left;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
     margin: 15px 20px 5px 10px;
 }
@@ -73,4 +73,11 @@
 }
 .choncon select {
     width: 100px;
+}
+.sizechose {
+    float: left;
+    margin: 15px;
+}
+.add-to-cart {
+    float: left;
 }
