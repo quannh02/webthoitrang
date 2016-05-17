@@ -101,13 +101,13 @@
      </div>
      <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
         <div class="alert alert-info alert-dismissable">
-  			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-  			<h4>Thông báo mới:</h4>
-  		<ul>
-		    <li><b>5</b> bài hát mới cần được duyệt</li>
-		    <li><b>8</b> yêu cầu hợp âm</li>
- 		</ul>
-		</div>
+  			   <button type="button" class="close" data-dismiss="alert" aria-hidden="false">×</button>
+  			   <h4>Thông báo mới:</h4>
+  		      <ul>
+		            <li><b>5</b> bài hát mới cần được duyệt</li>
+		            <li><b>8</b> yêu cầu hợp âm</li>
+ 		         </ul>
+		    </div>
 	<br>
 	<hr>
 		@yield('content')

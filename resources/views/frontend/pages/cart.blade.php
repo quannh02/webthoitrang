@@ -39,7 +39,7 @@
 		<td class="cart_quantity">
 		<div class="cart_quantity_button">
 		<a class="cart_quantity_up btn"> + </a>
-		<a class="cart_quantity_input" name="quantity" value="{{$item->qty}}">{{$item->qty}}</a>
+		<a class="cart_quantity_input" name="quantity">{{$item->qty}}</a>
 		<a class="cart_quantity_down btn"> - </a>
 		</div>
 		</td>

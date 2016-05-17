@@ -13,6 +13,7 @@ use Mail;
 //use Anam\Phpcart\Cart;
 class HomeController extends Controller
 {
+
     public function muahang(){
         $size = Input::get('size');
         //dd($size); die();
@@ -21,8 +22,27 @@ class HomeController extends Controller
         $product = Product::where('pro_id',$id)->get()->first();
         Cart::add(array('id'=> $id, 'name' => $product->pro_name, 'qty'=> 1, 'price' => $product->pro_price, 'options' => array('size' => $size)));
         $total = Cart::count(false);
-        return json_encode(array('count' => $total));
+        $rowId = Cart::search(array('id' => $id, 'options' => array('size' => $size)));
+        $ao = Cart::get($rowId[0]);
+        $subtotal = $ao->subtotal;
+        return json_encode(array('count' => $total, 'subtotal' => $subtotal));
     }
+    
+    public function giamhang(){
+        $size = Input::get('size');
+        $id = Input::get('id');
+        $rowId = Cart::search(array('id' => $id, 'options' => array('size' => $size)));
+        $ao = Cart::get($rowId[0]);
+        $soluong = $ao->qty;
+        $soluong -= 1;
+        Cart::update($rowId[0], $soluong);
+        $ao = Cart::get($rowId[0]);
+        $subtotal = $ao->subtotal;
+        $total = Cart::count(false);
+        return json_encode(array('count' => $total, 'subtotal' => $subtotal));
+        //dd($rowId); die();
+    }
+    
     public function giohang(){
          $cart = Cart::content();
          $count = Cart::count(false);
@@ -31,6 +51,7 @@ class HomeController extends Controller
          return view('frontend.pages.cart', compact('count', 'cart'));
 
     }
+    
     public function index()
     {
         $aosominam = Product::where('c_id', 1)->orderBy('pro_id', 'desc')->take(6)->get();
@@ -46,6 +67,7 @@ class HomeController extends Controller
     public function getlienhe(){
         return view('frontend.pages.lienhe');
     } 
+    
     public function postlienhe(Request $request){
         $data = ['hoten' => $request->name, 'tinnhan' => $request->message];
         Mail::send('email.blanks', $data, function($message){

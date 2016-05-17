@@ -24,6 +24,7 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::get('chitiet/{id}', 'HomeController@chitiet');
 	Route::post('mua-hang', ['as' => 'muahang', 'uses' => 'HomeController@muahang']);
  	Route::get('gio-hang', ['as' =>  'giohang', 'uses' => 'HomeController@giohang']); 
+ 	Route::post('giam-hang', ['as'=> 'giamhang', 'uses' => 'HomeController@giamhang']);
  	Route::get('lien-he', ['as' => 'getLienhe', 'uses'=> 'HomeController@getlienhe']);
  	Route::post('lien-he', ['as' => 'postLienhe', 'uses'=> 'HomeController@postlienhe']);
 });
