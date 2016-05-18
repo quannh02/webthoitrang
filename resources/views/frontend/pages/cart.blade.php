@@ -24,7 +24,7 @@
 		@foreach(Session::get('giohang') as $key => $value)
 		<tr>
 		<td class="cart_product">
-		<a href=""><img src="" alt=""></a>
+		<a href=""><img src="{{ url('public/frontend/images', $value['image'])}}" alt=""></a>
 		</td>
 		<td class="cart_description">
 		<h4><a href="">{{$value['name'] }}</a></h4>
@@ -38,16 +38,25 @@
 		</td>
 		<td class="cart_quantity">
 		<div class="cart_quantity_button">
-		<a class="cart_quantity_up btn"> + </a>
+		<form action="{{ url('congvaogio', [$value['id'], $value['size']])}}" method="post">
+		{{ csrf_field() }}
+		<button type="submit" class="cart_quantity_up btn">+</button>
+		</form>
 		<a class="cart_quantity_input" name="quantity">{{$value['quantity']}}</a>
-		<a class="cart_quantity_down btn"> - </a>
+		<form action="{{ url('truvaogio', [$value['id'], $value['size']]) }}" method="post">
+		{{ csrf_field() }}
+		<button type="submit" class="cart_quantity_down btn">-</button>
+		</form>
 		</div>
 		</td>
 		<td class="cart_total">
 		<p class="cart_total_price">{{{ number_format($value['quantity'] * $value['price'], 0) }}} VNĐ</p>
 		</td>
 		<td class="cart_delete">
-		<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+		<form action="{{ url('xoagiohang', [$value['id'], $value['size']]) }}" method="post">
+		{{ csrf_field() }}
+		<button type="submit" class="cart_quantity_delete btn">X</button>
+		</form>
 		</td>
 		</tr>
 		@endforeach
@@ -70,7 +79,7 @@
 		<li>Vận chuyển <span>Miễn phí</span></li>
 		<li>Tổng tiền: <span> VNĐ</span></li>
 		</ul>
-		 
+		<a href="{{ url('dat-hang') }}" class="btn btn-success">Thanh toán</a>
 		</div>
 		</div>
 		</div>

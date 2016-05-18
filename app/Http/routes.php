@@ -22,10 +22,13 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::get('cartremove', 'HomeController@removeCart');
 	Route::get('cart', 'HomeController@getCart');
 	Route::get('chitiet/{id}', ['as' => 'chitiet', 'uses' => 'HomeController@chitiet']);
-	Route::post('mua-hang', ['as' => 'muahang', 'uses' => 'HomeController@muahang']);
- 	Route::get('gio-hang', ['as' =>  'giohang', 'uses' => 'HomeController@giohang']); 
- 	Route::post('giam-hang', ['as'=> 'giamhang', 'uses' => 'HomeController@giamhang']);
+	Route::get('gio-hang', ['as'=> 'giohang', 'uses' => 'HomeController@giohang']);
  	Route::post('themvaogio/{id}', ['as' => 'themvaogio', 'uses' => 'HomeController@themvaogio']);
+ 	Route::post('congvaogio/{id}/{size}', 'HomeController@congvaogio');
+ 	Route::post('truvaogio/{id}/{size}', 'HomeController@truvaogio');
+ 	Route::post('xoagiohang/{id}/{size}', 'HomeController@xoatunggiohang');
+ 	Route::get('dat-hang', 'HomeController@datHang');
+ 	Route::post('dat-hang', 'HomeController@postdatHang');
  	Route::get('lien-he', ['as' => 'getLienhe', 'uses'=> 'HomeController@getlienhe']);
  	Route::post('lien-he', ['as' => 'postLienhe', 'uses'=> 'HomeController@postlienhe']);
 });

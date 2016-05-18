@@ -81,3 +81,7 @@
 .add-to-cart {
     float: left;
 }
+.cart_product img{
+    width: 110px;
+    height: 100px;
+}

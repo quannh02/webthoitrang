@@ -161,18 +161,6 @@
 	        <!-- end gnavi -->
 	        
 	    
-	<div class="bread-crumb-trail clearfix">
-	    <ol class="breadcrumb clearfix">
-	        <li><a href="/">Trang chủ</a></li>
-	        
-	        <li><a href="/danh-cho-nam">
-	            Nam</a></li>
-	        
-	        <li class="active">
-	            Quần Áo</li>
-	        
-	    </ol>
-	</div>
 @yield('content')
 
 </body></html>
