@@ -5,7 +5,7 @@
         Shop Quần Áo Nam Online</title>
     <meta name="title" content="Shop Quần Áo Nam">
     <meta name="keywords" content="Quan Ao">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/style.css') }}">
@@ -61,8 +61,8 @@
 	            	Giỏ hàng
 	            	<strong>
 	            		<p class="soluongsanpham">
-	            			@if(isset($count))
-	            				{{ $count }}
+	            			@if(is_array(Session::get('giohang')))
+	            				{{ count(Session::get('giohang')) }}
 	            			@endif
 	            		</p>
 	            	</strong>

@@ -10,48 +10,65 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Session;
 use Mail;
+use App\Item;
 //use Anam\Phpcart\Cart;
 class HomeController extends Controller
 {
+ 
+    public function themvaogio($id){
+        $size = Input::get('sizechose');
+        $product = Product::find($id);
+        $index = -1;
+            if(Session::has('giohang')) {
+                foreach(Session::get('giohang') as $key => $value){
+                    //dd($key); die();
+                    if(($id == Session::get('giohang')[$key]['id']) && ($size == Session::get('giohang')[$key]['size'])) {
+                        $index = $key;
+                        break;
+                    }
+                }
+                if($index === -1) {
+                    $item = array(
+                    'id' => $id,
+                    'name' => $product->pro_name,
+                    'quantity' => 1,
+                    'price'    => $product->pro_price,
+                    'size'      => $size
+                    );
+                    //dd($item);
+                    Session::push('giohang', $item);
+                } else {
+                    $quantity = Session::get('giohang')[$index]['quantity'];
+                    
+                    $item = array(
+                        'id' => $id,
+                        'name' => $product->pro_name,
+                        'quantity' => $quantity + 1,
+                        'price'    => $product->pro_price,
+                        'size'      => $size
+                        );
+                    Session::push('giohang', $item);
+                    Session::forget('giohang.' . $index);
+                    //dd(Session::get('giohang')[$index]['quantity']++);
+                    //echo 'a';
+                    //dd(Session::get('giohang')[$index]); die();
+                }      
+            } else {
+                $item = array(
+                    'id' => $id,
+                    'name' => $product->pro_name,
+                    'quantity' => 1,
+                    'price'    => $product->pro_price,
+                    'size'      => $size
+                    );
+                Session::push('giohang', $item);
+            }   
 
-    public function muahang(){
-        $size = Input::get('size');
-        //dd($size); die();
-        $id = Input::get('id');
-        //dd($id); die();
-        $product = Product::where('pro_id',$id)->get()->first();
-        Cart::add(array('id'=> $id, 'name' => $product->pro_name, 'qty'=> 1, 'price' => $product->pro_price, 'options' => array('size' => $size)));
-        $total = Cart::count(false);
-        $rowId = Cart::search(array('id' => $id, 'options' => array('size' => $size)));
-        $ao = Cart::get($rowId[0]);
-        $subtotal = $ao->subtotal;
-        return json_encode(array('count' => $total, 'subtotal' => $subtotal));
-    }
-    
-    public function giamhang(){
-        $size = Input::get('size');
-        $id = Input::get('id');
-        $rowId = Cart::search(array('id' => $id, 'options' => array('size' => $size)));
-        $ao = Cart::get($rowId[0]);
-        $soluong = $ao->qty;
-        $soluong -= 1;
-        Cart::update($rowId[0], $soluong);
-        $ao = Cart::get($rowId[0]);
-        $subtotal = $ao->subtotal;
-        $total = Cart::count(false);
-        return json_encode(array('count' => $total, 'subtotal' => $subtotal));
-        //dd($rowId); die();
-    }
-    
-    public function giohang(){
-         $cart = Cart::content();
-         $count = Cart::count(false);
-         //$data = Session::all();
-         //dd($data); die();
-         return view('frontend.pages.cart', compact('count', 'cart'));
+            //dd(Session::get('giohang'));
+            // $count = count(Session::get('giohang'));
+            return redirect()->route('giohang');
+    }    
 
-    }
-    
     public function index()
     {
         $aosominam = Product::where('c_id', 1)->orderBy('pro_id', 'desc')->take(6)->get();
