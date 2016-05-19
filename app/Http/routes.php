@@ -16,12 +16,8 @@ Route::get('/', function () {
 });
 Route::group(['namespace' => 'frontend'], function(){
 	Route::get('index', 'HomeController@index');
-	Route::post('cart/{id}', 'HomeController@cart');
-	Route::get('cartincrease/{product_id}', 'HomeController@increaseCart');
-	Route::get('cartdecrease/{product_id}', 'HomeController@decreaseCart');
-	Route::get('cartremove', 'HomeController@removeCart');
-	Route::get('cart', 'HomeController@getCart');
 	Route::get('chitiet/{id}', ['as' => 'chitiet', 'uses' => 'HomeController@chitiet']);
+	// route giỏ hàng
 	Route::get('gio-hang', ['as'=> 'giohang', 'uses' => 'HomeController@giohang']);
  	Route::post('themvaogio/{id}', ['as' => 'themvaogio', 'uses' => 'HomeController@themvaogio']);
  	Route::post('congvaogio/{id}/{size}', 'HomeController@congvaogio');
@@ -29,10 +25,13 @@ Route::group(['namespace' => 'frontend'], function(){
  	Route::post('xoagiohang/{id}/{size}', 'HomeController@xoatunggiohang');
  	Route::get('dat-hang', 'HomeController@datHang');
  	Route::post('dat-hang', 'HomeController@postdatHang');
+ 	Route::get('datthanhcong', ['as'=> 'datthanhcong' , 'uses' => 'HomeController@datthanhcong']);
+ 	// route lien he
  	Route::get('lien-he', ['as' => 'getLienhe', 'uses'=> 'HomeController@getlienhe']);
  	Route::post('lien-he', ['as' => 'postLienhe', 'uses'=> 'HomeController@postlienhe']);
 });
 Route::group(['namespace' => 'Auth'], function(){
+	// dang ky dang nhap
 	Route::get('dangky', ['as' => 'dangky' , 'uses' => 'AuthController@dangky']);
 	Route::post('dangky', 'AuthController@postDangky');
 	Route::get('dangnhap', ['as' => 'dangnhap', 'uses' => 'AuthController@getLogin']);

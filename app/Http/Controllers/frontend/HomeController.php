@@ -179,8 +179,12 @@ class HomeController extends Controller
             ]);
             $order->detailorder()->save($orderdetail);
         }
+        return redirect()->route('datthanhcong');
     }
 
+    public function datthanhcong(){
+        return view('frontend.pages.thanhcong');
+    }
     public function index()
     {
         $aosominam = Product::where('c_id', 1)->orderBy('pro_id', 'desc')->take(6)->get();

@@ -28,4 +28,5 @@ class SanPhamRequest extends Request
             'pro_images' => 'required|image',
         ];
     }
+    
 }
