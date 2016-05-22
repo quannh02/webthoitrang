@@ -8,7 +8,13 @@ class DetailOrder extends Model
 {
      protected $table = 'detailoder';
     protected $primaryKey = 'det_id';
-    protected $fillable = ['ord_id', 'pro_id', 'det_number','det_price', 'det_size'];
+    protected $fillable = [
+    	'ord_id', 
+    	'pro_id', 
+    	'det_number',
+    	'det_price', 
+    	'det_size'
+    ];
     public function order(){
     	return $this->belongsTo('App\Order');
     }
