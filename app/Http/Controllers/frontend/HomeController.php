@@ -21,6 +21,20 @@ use App\DetailOrder;
 class HomeController extends Controller
 {
 
+     public function index()
+    {
+        $cates = Category::all();
+        $aosominam = Product::where('c_id', 1)->orderBy('pro_id', 'desc')->take(6)->get();
+        $aothunnam = Product::where('c_id', 2)->orderBy('pro_id', 'desc')->take(6)->get();
+        return view('frontend.pages.index', compact('aosominam', 'aothunnam', 'cates'));
+    }
+
+    public function chitiet($id){
+        $cates = Category::all();
+        $product = Product::where('pro_id', $id)->get()->first();
+        return view('frontend.pages.chitiet', compact('product', 'cates'));
+    }  
+
     
     public function giohang(){
          return view('frontend.pages.cart');
@@ -183,20 +197,10 @@ class HomeController extends Controller
     }
 
     public function datthanhcong(){
-        return view('frontend.pages.thanhcong');
+        Session::flush('giohang');
+        return view('frontend.pages.thongbao');
     }
-    public function index()
-    {
-        $aosominam = Product::where('c_id', 1)->orderBy('pro_id', 'desc')->take(6)->get();
-        $aothunnam = Product::where('c_id', 2)->orderBy('pro_id', 'desc')->take(6)->get();
-        return view('frontend.master', compact('aosominam', 'aothunnam'));
-    }
-
-    public function chitiet($id){
-        $product = Product::where('pro_id', $id)->get()->first();
-        return view('frontend.pages.chitiet', compact('product'));
-    }  
-
+   
     public function getlienhe(){
         return view('frontend.pages.lienhe');
     } 

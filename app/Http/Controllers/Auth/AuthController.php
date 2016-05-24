@@ -13,6 +13,7 @@ use Hash;
 use App\Http\Requests\DangNhapRequest;
 use Auth;
 use Input;
+use App\Category;
 
 class AuthController extends Controller
 {
@@ -40,7 +41,8 @@ class AuthController extends Controller
     }
 
     public function dangky(){
-        return view('frontend.pages.dangky');
+        $cates = Category::all();
+        return view('frontend.pages.dangky', compact('cates'));
     }
     public function postDangKy(DangKyRequest $request){
         $user = new User;
@@ -52,7 +54,8 @@ class AuthController extends Controller
         return redirect()->route('dangnhap');
     }
     public function getLogin(){
-        return view('frontend.pages.dangnhap');
+        $cates  = Category::all();
+        return view('frontend.pages.dangnhap', compact('cates'));
     }
     public function postLogin(DangNhapRequest $request){
         $user = [
