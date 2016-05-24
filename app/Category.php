@@ -12,4 +12,5 @@ class Category extends Model
     public function product(){
     	return $this->hasMany('App\Product');
     }
+    public $timestamps = false;
 }

@@ -72,6 +72,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 <ul></ul>
+
   <div class="container" style="margin-top:40px">
     <div class="row">
       <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -81,7 +82,7 @@
       <a href="{{ url('quanlysanpham') }}"><i class="fa fa-book" style="margin-right:10px"></i>Quản lý sản phẩm</a>
     </li>
     <li class="">
-      <a href="/chords"><i class="fa fa-music" style="margin-right:10px"></i>Quản lý danh mục</a>
+      <a href="{{ url('quanlydanhmuc')}}"><i class="fa fa-cube" style="margin-right:10px"></i>Quản lý danh mục</a>
     </li>
     <li class="">
       <a href="/authors"><i class="fa fa-pencil" style="margin-right:10px"></i>Quản lý tin tức</a>
@@ -104,13 +105,20 @@
         <div class="alert alert-info alert-dismissable">
   			   <button type="button" class="close" data-dismiss="alert" aria-hidden="false">×</button>
   			   <h4>Thông báo mới:</h4>
-  		      <ul>
+  		     
+            <ul>
+
 		            <li><b>5</b> bài hát mới cần được duyệt</li>
 		            <li><b>8</b> yêu cầu hợp âm</li>
  		         </ul>
 		    </div>
 	<br>
 	<hr>
+   @if(Session::has('message'))
+            <div class="alert alert-{!! Session::get('flash_level') !!}">
+                {!! Session::get('message') !!}
+            </div>
+            @endif
 		@yield('content')
     </div>
   </div>

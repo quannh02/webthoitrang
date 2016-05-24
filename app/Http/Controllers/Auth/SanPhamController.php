@@ -56,7 +56,7 @@ class SanPhamController extends Controller
         }
 
         $product->save();
-        return redirect('quanlysanpham');
+        return redirect('quanlysanpham')->with('message', 'Bạn đã thêm thành công');
     }
     public function suasanpham($id){
         $category = Category::all();
@@ -90,14 +90,14 @@ class SanPhamController extends Controller
             }   
         }
         $product->save();
-        return redirect('quanlysanpham');
+        return redirect('quanlysanpham')->with('message', 'Bạn đã sửa thành công');
     }
     public function deletesanpham($id){
         $product = Product::where('pro_id', $id)->get()->first();
 
         unlink('public/frontend/images/' .  $product->pro_images);
         Product::where('pro_id', $id)->delete();
-        return redirect('quanlysanpham')->with('messages','Bạn đã xóa thành công');
+        return redirect('quanlysanpham')->with('message','Bạn đã xóa thành công');
     }
     
 }

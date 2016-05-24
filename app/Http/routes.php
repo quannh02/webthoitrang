@@ -48,6 +48,13 @@ Route::group(['namespace' => 'Auth'], function(){
 		Route::get('suasanpham/{id}', 'SanPhamController@suasanpham');
 		Route::post('suasanpham/{id}', 'SanPhamController@postsuasanpham');
 		Route::get('xoasanpham/{id}', 'SanPhamController@deletesanpham');
+
+		Route::get('quanlydanhmuc', 'DanhMucController@quanlydanhmuc');
+		Route::get('suadanhmuc/{id}', 'DanhMucController@suadanhmuc');
+		Route::post('suadanhmuc/{id}', 'DanhMucController@postsuadanhmuc');
+		Route::get('themdanhmuc', 'DanhMucController@themdanhmuc');
+		Route::post('themdanhmuc', 'DanhMucController@postthemdanhmuc');
+		Route::get('xoadanhmuc/{id}', 'DanhMucController@xoasanpham');
 	});
 	
 });
