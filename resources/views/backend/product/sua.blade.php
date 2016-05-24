@@ -16,47 +16,80 @@
                           @if(Session::has('flash_message'))
                               <div class="alert alert-{{ Session::get('flash_level')}}">{{ Session::get('flash_message') }}</div>
                           @endif
-                        <form action="{{ url('suasanpham', $product->pro_id) }}" method="POST"  enctype="multipart/form-data">
+                          <form action="{{ url('suasanpham', $product->pro_id) }}" method="POST"  enctype="multipart/form-data">
                             {!! csrf_field() !!}
-                           	<div class="row">
-                           		<div class="col-md-2">Tên sản phẩm</div>
-                           		<div class="form-group col-md-8">
-                           			<input type="text" class="form-control" name="pro_name" value="{{ $product->pro_name }}" placeholder="">
-                           		</div>
-                           	</div>
-                           	<div class="row">
-                           		<div class="col-md-2">Giá sản phẩm</div>
-                           		<div class="form-group col-md-8">
-                           			<input type="text" class="form-control" name="pro_price" value="{{ $product->pro_price }}" placeholder="">
-                           		</div>
-                           	</div>
-                           	<div class="row">
-                           		<div class="col-md-2">Hình xe</div>
-                           		<div class="form-group col-md-8">
-                           			<input type="file" name="pro_images" id="pro_images">
-                           		</div>
-                           	</div>
-                           	<div class="row">
-                           		<div class="col-md-2">Số lượng</div>
-                           		<div class="form-group col-md-8">
-                           			<input type="number" class="form-control" value="{{ $product->pro_number }}" name="pro_number" placeholder="">
-                           		</div>
-                           	</div>
-                           	<div class="row">
-                           		<div class="col-md-2">Màu xe</div>
-                           		<div class="form-group col-md-8">
-                           			<input type="text" class="form-control" name="pro_color" value="{{ $product->pro_color }}" placeholder="">
-                           		</div>
-                           	</div>
-                           	<div class="row">
-                           		<div class="col-md-2">Size</div>
-                           		<div class="form-group col-md-8">
-                           			<input type="text" class="form-control" name="pro_size" value="{{ $product->pro_size }}" placeholder="">
-                           		</div>
-                           	</div>
+                            <div class="row form-group">
+                                <div class="col-md-2">Danh mục</div>
+                                <div class="col-md-8">
+                                <p>{{ $cate->c_name }}</p>
+                                <select class="form-control" name="sltParent">
+                                    <option value="">Chọn danh mục</option>
+                                    @foreach($category as $cate)
+                                    <option value="{{ $cate->c_id }}">{{ $cate->c_name }}</option>
+                                    @endforeach
+                                </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-2">Tên sản phẩm</div>
+                              <div class="form-group col-md-8">
+                                <input type="text" class="form-control" name="pro_name" value="{{ $product->pro_name }}" placeholder="Nhập tên sản phẩm">
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-2">Code sản phẩm</div>
+                              <div class="form-group col-md-8">
+                                <input type="text" class="form-control" name="pro_code" value="{{ $product->pro_code }}" placeholder="Nhập code sản phẩm">
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-2">Giá sản phẩm</div>
+                              <div class="form-group col-md-8">
+                                <input type="text" class="form-control" name="pro_price" value="{{ $product->pro_price }}" placeholder="Nhập giá sản phẩm">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-2">Hình</div>
+                              <div class="form-group col-md-8">
+                                <input type="file" name="pro_images" id="pro_images">
+                              </div>
+                            </div>
+                      
+                            <div class="row">
+                              <div class="col-md-2">Màu sản phẩm</div>
+                              <div class="form-group col-md-8">
+                                <input type="text" class="form-control" name="pro_color" value="{{ $product->pro_color }}" placeholder="Nhập màu sản phẩm">
+                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">Cỡ S</div>
+                                <div class="form-group col-md-3">
+                                   <input type="number" class="form-control" name="sizes" value="{{ $product->pro_sizeS }}" placeholder="Nhập số lượng">
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">Cỡ M</div>
+                                <div class="form-group col-md-3">
+                                   <input type="number" class="form-control" name="sizem" value="{{ $product->pro_sizeM }}" placeholder="Nhập số lượng">
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">Cỡ L</div>
+                                <div class="form-group col-md-3">
+                                   <input type="number" class="form-control" name="sizel" value="{{ $product->pro_sizeL }}" placeholder="Nhập số lượng">
+                                </div>
+                               
+                            </div>
                             <button type="submit" class="btn btn-default">Sửa</button>
-                            <button type="reset" class="btn btn-reset btn-default">Reset</button>
                         <form>
+                    </div>
+                    <div class="col-md-2 col-sm-8 col-xs-12">
+                        <img src="{{ url('public/frontend/images', $product->pro_images)}}">
+                    </div>
                     </div>
                 </div>
 @endsection

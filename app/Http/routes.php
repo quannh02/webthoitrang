@@ -42,12 +42,12 @@ Route::group(['namespace' => 'Auth'], function(){
 	});
 	Route::group(['middleware' => 'nhanvien'], function(){
 		Route::get('allusers', 'UserController@allUsers');
-		Route::get('quanlysanpham', ['as'=> 'quanlysanpham' , 'uses' => 'SanPhamController@index']);
+		Route::get('quanlysanpham', 'SanPhamController@index');
 		Route::get('themsanpham', 'SanPhamController@viewthemsanpham');
 		Route::post('themsanpham', 'SanPhamController@themsanpham');
 		Route::get('suasanpham/{id}', 'SanPhamController@suasanpham');
 		Route::post('suasanpham/{id}', 'SanPhamController@postsuasanpham');
-		Route::post('deletesanpham', 'SanPhamController@deletesanpham');
+		Route::get('xoasanpham/{id}', 'SanPhamController@deletesanpham');
 	});
 	
 });

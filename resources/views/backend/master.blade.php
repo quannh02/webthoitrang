@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/w3.css')}}">
     <link rel="stylesheet" href="{{ url('public/frontend/css/font-awesome.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/delete.js') }}"></script>

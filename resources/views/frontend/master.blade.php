@@ -38,8 +38,8 @@
         <div class="dropdown">
             <span class="icon-user"></span><a href="">Đăng nhập<b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="http://localhost:8000/webthoitrang/public/dangnhap">Đăng nhập</a></li>
-                <li><a href="http://localhost:8000/webthoitrang/public/dangky">Đăng kí</a></li>
+                <li><a href="http://localhost:8000/webthoitrang/dangnhap">Đăng nhập</a></li>
+                <li><a href="http://localhost:8000/webthoitrang/dangky">Đăng kí</a></li>
             </ul>
         </div>
         

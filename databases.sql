@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2016 at 01:56 PM
+-- Generation Time: May 24, 2016 at 09:57 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -122,14 +122,14 @@ CREATE TABLE IF NOT EXISTS `product` (
   `pro_sizeS` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`pro_id`, `c_id`, `p_id`, `pro_name`, `pro_images`, `pro_code`, `pro_price`, `pro_color`, `pro_sizeM`, `pro_sizeL`, `pro_sizeS`, `created_at`, `updated_at`) VALUES
-(2, 1, 0, 'Áo sơ mi nam tay dài thời trang', 'somi2.jpg', 'SM2', 185000, 'xanh lam', 1, 1, 2, '2016-05-11 08:40:25', '0000-00-00 00:00:00'),
+(2, 2, 0, 'Áo sơ mi nam tay dài thời trang', 'somi2.jpg', 'SM2', 185000, 'xanh lam', 1, 1, 2, '2016-05-24 06:48:25', '0000-00-00 00:00:00'),
 (3, 1, 0, 'Áo sơ mi tay ngắn họa tiết cá tính', 'somi3.jpg', 'SM3', 189000, 'đen', 1, 0, 1, '2016-05-11 08:39:53', '0000-00-00 00:00:00'),
 (4, 1, 0, 'Áo sơ mi nam tay ngắn sọc nhỏ thời trang', 'somi4.jpg', 'SM4', 189000, 'Xanh nhạt', 0, 1, 1, '2016-05-11 08:39:53', '0000-00-00 00:00:00'),
 (5, 1, 0, 'Áo sơ mi tay ngắn họa tiết cá tính', 'somi5.jpg', 'SM5', 189000, 'xám', 0, 3, 1, '2016-05-11 08:45:03', '2016-05-24 17:00:00'),
@@ -274,7 +274,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `promotion`
 --

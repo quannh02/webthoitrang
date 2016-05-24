@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Category;
 use Input;
 use App\Http\Requests\SanPhamRequest;
+use Storage;
 
 class SanPhamController extends Controller
 {
@@ -19,7 +20,8 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        $allproducts = Product::all();
+
+        $allproducts = Product::paginate(15);
         return view('backend.product.list', compact('allproducts'));
     }
 
@@ -30,9 +32,15 @@ class SanPhamController extends Controller
     public function themsanpham(SanPhamRequest $request){
         $product = new Product;
         $product->c_id = $request->sltParent;
+        $product->pro_code = $request->pro_code;
+        $product->pro_color = $request->pro_color;
+        $product->pro_sizeS = $request->sizes;
+        $product->pro_sizeL = $request->sizel;
+        $product->pro_sizeM = $request->sizem;
         // dd($product->c_id); die();
         $product->pro_name = $request->pro_name;
         $product->pro_price = $request->pro_price;
+        $product->pro_code = $request->pro_code;
         $file = $request->file('pro_images');
         $destinationPath = base_path(). "/public/frontend/images/";
 
@@ -46,30 +54,50 @@ class SanPhamController extends Controller
                 $file->move($destinationPath, $fileName);
             }   
         }
-        $product->pro_number = $request->pro_number;
-        $product->pro_color = $request->pro_color;
-        $product->pro_size = $request->pro_size;
+
         $product->save();
-        return redirect()->route('quanlysanpham');
+        return redirect('quanlysanpham');
     }
     public function suasanpham($id){
+        $category = Category::all();
         $product = Product::where('pro_id', $id)->get()->first();
-        return view('backend.product.sua', compact('product'));
+        $cate = Category::where('c_id', $product->c_id)->get()->first();
+        return view('backend.product.sua', compact('product', 'category', 'cate'));
     }
 
     public function postsuasanpham(SanPhamRequest $request, $id){
         $product = Product::findOrFail($id);
+        $product->c_id = $request->sltParent;
+        $product->pro_color = $request->pro_color;
+        $product->pro_sizeS = $request->sizes;
+        $product->pro_sizeL = $request->sizel;
+        $product->pro_sizeM = $request->sizem;
+        // dd($product->c_id); die();
         $product->pro_name = $request->pro_name;
         $product->pro_price = $request->pro_price;
-        $product->pro_size = $request->pro_size;
-        $product->pro_color = $request->pro_color;
-        $product->pro_number = $request->pro_number;
+        $product->pro_code = $request->pro_code;
+        $file = $request->file('pro_images');
+        $destinationPath = base_path(). "/public/frontend/images/";
+
+        // $function = new MyFunction;
+        // $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
+        $product->pro_images = $file->getClientOriginalName();
+        $fileName = $destinationPath . $product->pro_images;
+        //dd($file); die();
+        if ($request->hasFile('pro_images')) {
+            if ($file->isValid()) {
+                $file->move($destinationPath, $fileName);
+            }   
+        }
         $product->save();
-        return redirect()->route('quanlysanpham');
+        return redirect('quanlysanpham');
     }
-    public function deletesanpham(){
-        $id = Input::get('id');
+    public function deletesanpham($id){
+        $product = Product::where('pro_id', $id)->get()->first();
+
+        unlink('public/frontend/images/' .  $product->pro_images);
         Product::where('pro_id', $id)->delete();
+        return redirect('quanlysanpham')->with('messages','Bạn đã xóa thành công');
     }
     
 }
