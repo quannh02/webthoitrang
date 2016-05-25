@@ -10,11 +10,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('public/frontend/css/chitiet.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/w3.css')}}">
     <link rel="stylesheet" href="{{ url('public/frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/font-awesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/font-awesome.min.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
-    <script type="text/javascript" src="{{ url('public/frontend/js/addtocart.js')}}"></script>
-    <script type="text/javascript" src="{{ url('public/frontend/js/plustocart.js')}}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/bootstrap.min.js')}}"></script>
 	<script>
     $.ajaxSetup({
@@ -28,7 +27,7 @@
 	    <div id="pheader" class="clearfix">
 	        <div class="pcontainer">
 	            <div class="logo">
-	                <a href="/">BaShop</a>
+	                <img src="{{ url('public/frontend/images/bashoplogo.png') }}">
 	            </div>
 	            <div class="form-search">
 	                <form id="form-nav-search-fix" method="get" action="/tim-kiem">
@@ -48,7 +47,7 @@
 	    <div class="accountInner">
 	    
 	        <div class="dropdown">
-	            <span class="icon-user"></span><a href="">Đăng nhập<b class="caret"></b></a>
+	           	<a href="">Đăng nhập</a>
 	            <ul class="dropdown-menu">
 	                <li><a href="{{ url('dangnhap') }}">Đăng nhập</a></li>
 	                <li><a href="{{ url('dangky') }}">Đăng kí</a></li>
@@ -81,9 +80,8 @@
 	<div id="gnaviInner" class="clearfix">
 	    <div class="wap">
 	        <ul id="gnaviInfo" class="clearfix">
-	            <li class="gnavi_logo pa hide"><a href="/">
-	                <img src="{!! url('public/frontend/images/logo.png') }}" alt=""></a></li>
-	            <li class="gnavi_home pa"><a href="">Trang chủ</a></li>
+	            
+	            <li class="pa"><a href="{{ url('index')}}">Trang chủ</a></li>
 	            
 	            <li class="pa"><a href="" class="palink">
 	                Quần Áo Nam</a>

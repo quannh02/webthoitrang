@@ -12,6 +12,9 @@ body {
     background: #fff;
     line-height: 18px
 }
+ul, ol{
+    margin-bottom: 0px;
+}
 a {
     text-decoration: none;
     color: green
@@ -95,7 +98,7 @@ ol {
 }
 .dropdown .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 90%;
     left: 0;
     z-index: 1000;
     display: none;
@@ -3846,4 +3849,5 @@ hr {
         width: 280px
     }
     #back-top .back-top-gr {}
+
 }

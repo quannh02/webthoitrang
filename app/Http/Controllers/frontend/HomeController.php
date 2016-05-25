@@ -31,13 +31,24 @@ class HomeController extends Controller
 
     public function chitiet($id){
         $cates = Category::all();
+        $productcungloai = Product::whereNotIn('pro_id', [$id])->paginate(16);
         $product = Product::where('pro_id', $id)->get()->first();
-        return view('frontend.pages.chitiet', compact('product', 'cates'));
+        return view('frontend.pages.chitiet', compact('product', 'cates', 'productcungloai'));
     }  
 
-    
+    public function tongtien(){
+        if(Session::has('giohang')){
+            $tongtien = 0;
+            foreach(Session::get('giohang') as $key => $value){
+                $tongtien += $value['quantity'] * $value['price']; 
+            }
+        }
+        return $tongtien;
+    }
     public function giohang(){
-         return view('frontend.pages.cart');
+        $cates = Category::all();
+        $tongtien = $this->tongtien();
+         return view('frontend.pages.cart', compact('cates',  'tongtien'));
 
     }
     

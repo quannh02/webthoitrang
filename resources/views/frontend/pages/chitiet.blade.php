@@ -14,7 +14,7 @@
 				<div class="thongtin">
 		                    <div class="ten_product1"></div>
 					<div class="ten_product1">{{ $product->pro_name }}</div>
-					<div class="giatien"><i>345.000vnđ</i></div>
+					<div class="giatien"><i>{{ number_format($product->pro_price, 0)}}vnđ</i></div>
 					
 					 <div class="comment more">
 					 <p>
@@ -31,7 +31,7 @@
 					<div class="thoigian">SẼ CÓ TẠI NHÀ BẠN<br>
 						<i style="color:gray">trong 1 - 2 ngày làm việc</i></div>
 					<div class="mausac"></div>
-				`</div>
+				</div>
 		
 				<div class="muahang">
 					<div class="kichco">Chọn kích cỡ<br>
@@ -55,4 +55,33 @@
                                 <input type="submit" value="Thêm vào giỏ" data-id="{{ $product->pro_id }}" class="btn btn-fefault btn-success">
                             </form>
 				</div>
+	</div>
+	<div class="w3-row-padding">
+  	<div class="w3-col s12 w3-green w3-center"><p>Sản phẩm cùng loại</p></div>
+  	<div class="w3-col s12 w3-white w3-center">
+  		<div class="w3-row-padding">
+  		@foreach($productcungloai as $product)
+  			<div class="w3-col s3">
+  				
+  				<div class="productItem" dealid="11547">
+                        <a href="{{ url('chitiet', $product->pro_id )}}" ecimpression=""><span class="product-img">
+                            
+                            <img  src="{{ url('public/frontend/images', $product->pro_images) }}" style="display: block;"></span>
+                            <span class="productName">
+                                 {{ $product->pro_name }} - {{ $product->pro_code }}   
+                            </span> <span class="price"><span>
+                                    280.000</span>
+                                    
+                                </span>
+                            
+                            <a href="{{url('chitiet', $product->pro_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi tiết</a>
+                        </a>
+                </div>
+                
+            </div>
+        @endforeach
+       	<?php echo $productcungloai->render(); ?>
+  		</div>
+  	</div>
+	</div>
 @endsection

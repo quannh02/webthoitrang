@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/w3.css')}}">
-    <link rel="stylesheet" href="{{ url('public/frontend/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url('public/frontend/css/font-awesome.min.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/delete.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/bootstrap.min.js') }}"></script>
@@ -58,7 +58,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="/auth/register/edit">
+              <a href="{{ url('thongtintaikhoan', Auth::user()->user_id) }}">
                 <i class="fa fa-info-circle" style="margin-right:10px"></i> Thông tin tài khoản
               </a>
               <a href="{{ url('dangxuat') }}" style="color: #d2322d" data-method="DELETE">

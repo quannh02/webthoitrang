@@ -1,9 +1,5 @@
 @extends('frontend.layout')
 @section('content')
-	<section id="advertisement">
-	<div class="container">
-		</div>
-		</section>
 		<section id="cart_items">
 		<div class="container">
 		<div class="table-responsive cart_info">
@@ -66,23 +62,20 @@
 		</tbody>
 		</table>
 		</div>
-		</div>
-		</section> <!--/#cart_items-->
-		 
-		<section id="do_action">
-		<div class="container">
-		 
-		<div class="row">
 		<div class="col-sm-6">
 		<div class="total_area">
 		<ul>
 		<li>Vận chuyển <span>Miễn phí</span></li>
-		<li>Tổng tiền: <span> VNĐ</span></li>
+		<li>Tổng tiền: <span>{{ number_format($tongtien,0) }} VNĐ</span></li>
 		</ul>
 		<a href="{{ url('dat-hang') }}" class="btn btn-success">Thanh toán</a>
 		</div>
 		</div>
 		</div>
-		</div>
-		</section><!--/#do_action-->
+		
+		 
+		
+		</section> <!--/#cart_items-->
+		 
+		
 @endsection
