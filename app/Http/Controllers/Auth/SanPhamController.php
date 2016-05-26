@@ -100,4 +100,15 @@ class SanPhamController extends Controller
         return redirect('quanlysanpham')->with('message','Bạn đã xóa thành công');
     }
     
+    public function timkiem(){
+        $name = Input::get('q');
+        //dd($name); die();
+        $products = Product::where('pro_name', 'LIKE' , '%'. $name . '%' )
+                    ->orWhere('pro_code', 'LIKE', '%'. $name. '%')->paginate(15);
+        return view('backend.product.search', compact('products'));
+    }
+
+    public function datHang(){
+        return view('backend.product.dat');
+    }
 }

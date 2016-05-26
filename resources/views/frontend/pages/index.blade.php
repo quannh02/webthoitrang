@@ -16,6 +16,43 @@
                             Sắp xếp theo</p>
                     </div>   
 @endsection
+@section('danhmuc')
+    <div class="cate-vertical">
+                    <div class="wap" style="position: relative;">
+                        <div class="cate-header">
+                            <div class="title">
+                                <span>Tất cả danh mục</span></div>
+                           
+                        </div>
+
+                        <div class="cate-content">
+                            <ul>
+                                <li>
+                                    <h2>
+                                        Quần Áo</h2>
+                                </li>
+                                
+                                 @foreach($cates as $cate)
+                                                
+                                    <li class="lisub"><a class="asub" href="{{ url('danhmuc', $cate->c_id)}}">
+                                      {{ $cate->c_name }}</a>
+                                    </li>
+                                                
+                                 @endforeach
+                                
+                            </ul>
+                        </div>
+                        <div class="box-search">
+                            <form action="/tim-kiem" method="get" id="form-nav-search-cate">
+                            <input type="text" placeholder="Nhập tên sản phẩm..." name="q" id="vckeyword" class="key">
+                            <button class="btn-search" type="submit">
+                                Tìm kiếm
+                            </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+@endsection
 @section('content')
                 <div class="all-items">
                     @foreach($aosominam as $ao)

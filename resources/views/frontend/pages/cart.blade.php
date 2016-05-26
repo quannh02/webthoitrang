@@ -1,7 +1,11 @@
 @extends('frontend.layout')
 @section('content')
+
 		<section id="cart_items">
 		<div class="container">
+		@if(Session::has('message'))
+			<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+		@endif
 		<div class="table-responsive cart_info">
 		@if(is_array(Session::get('giohang')))
 		<table class="table table-condensed">

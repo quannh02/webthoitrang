@@ -36,7 +36,8 @@
       <a class="navbar-brand" href="/">
         <img src="{{ url('public/frontend/images/bashoplogo.png') }}" style="height:70px">
       </a>
-      <form class="navbar-form navbar-left col-lg-12 col-md-12 col-sm-12 col-xs-6" role="search" action="/search" method="GET" id="search-form" style="min-width: 65%; margin-left: 15%;">
+      <form class="navbar-form navbar-left col-lg-12 col-md-12 col-sm-12 col-xs-6" role="search" action="{{ url('timkiem') }}" method="GET" id="search-form" style="min-width: 65%; margin-left: 15%;">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="input-group col-lg-12 col-md-12 col-sm-10 col-xs-10">
           <span class="ui-helper-hidden-accessible"></span>
           <input type="text" name="q" class="search form-control ui-autocomplete-input" placeholder="Tìm kiếm... (sản phẩm, tin tức...)" autocomplete="off">

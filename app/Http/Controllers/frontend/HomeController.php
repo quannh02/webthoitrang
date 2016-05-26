@@ -37,8 +37,9 @@ class HomeController extends Controller
     }  
 
     public function tongtien(){
+        $tongtien = 0;
         if(Session::has('giohang')){
-            $tongtien = 0;
+            
             foreach(Session::get('giohang') as $key => $value){
                 $tongtien += $value['quantity'] * $value['price']; 
             }
@@ -179,10 +180,12 @@ class HomeController extends Controller
     }
 
     public function datHang(){
-        return view('frontend.pages.dat');
+         $cates = Category::all();
+        return view('frontend.pages.dat', compact('cates'));
     }
 
     public function postdatHang(DatHangRequest $request){
+        if(Session::has('giohang')){
         $customer = Customer::create([
             'name' => $request->namenguoigui,
             'email' => $request->emailnguoigui,
@@ -205,6 +208,8 @@ class HomeController extends Controller
             $order->detailorder()->save($orderdetail);
         }
         return redirect()->route('datthanhcong');
+        }
+        return redirect('gio-hang')->with('message', 'Bạn chưa có giỏ hàng nào');
     }
 
     public function datthanhcong(){

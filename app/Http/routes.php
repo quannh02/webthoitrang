@@ -20,27 +20,31 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::get('danhmuc/{id}', 'DanhMucController@danhmucsanpham');
 	Route::get('chitiet/{id}', ['as' => 'chitiet', 'uses' => 'HomeController@chitiet']);
 	// route giỏ hàng
-	Route::get('gio-hang', ['as'=> 'giohang', 'uses' => 'HomeController@giohang']);
- 	Route::post('themvaogio/{id}', ['as' => 'themvaogio', 'uses' => 'HomeController@themvaogio']);
- 	Route::post('congvaogio/{id}/{size}', 'HomeController@congvaogio');
- 	Route::post('truvaogio/{id}/{size}', 'HomeController@truvaogio');
- 	Route::post('xoagiohang/{id}/{size}', 'HomeController@xoatunggiohang');
- 	Route::get('dat-hang', 'HomeController@datHang');
- 	Route::post('dat-hang', 'HomeController@postdatHang');
- 	Route::get('datthanhcong', ['as'=> 'datthanhcong' , 'uses' => 'HomeController@datthanhcong']);
+	Route::get(	'gio-hang', 				['as'=> 'giohang', 'uses' => 'HomeController@giohang']);
+ 	Route::post('themvaogio/{id}', 			['as' => 'themvaogio', 'uses' => 'HomeController@themvaogio']);
+ 	Route::post('congvaogio/{id}/{size}', 	'HomeController@congvaogio');
+ 	Route::post('truvaogio/{id}/{size}', 	'HomeController@truvaogio');
+ 	Route::post('xoagiohang/{id}/{size}', 	'HomeController@xoatunggiohang');
+ 	Route::get(	'dat-hang', 				'HomeController@datHang');
+ 	Route::post('dat-hang', 				'HomeController@postdatHang');
+ 	Route::get(	'datthanhcong', 			['as'=> 'datthanhcong' , 'uses' => 'HomeController@datthanhcong']);
  	// route lien he
- 	Route::get('lien-he', ['as' => 'getLienhe', 'uses'=> 'HomeController@getlienhe']);
- 	Route::post('lien-he', ['as' => 'postLienhe', 'uses'=> 'HomeController@postlienhe']);
+ 	Route::get(	'lien-he', 	['as' => 'getLienhe', 	'uses'=> 'HomeController@getlienhe']);
+ 	Route::post('lien-he', 	['as' => 'postLienhe', 	'uses'=> 'HomeController@postlienhe']);
 });
 Route::group(['namespace' => 'Auth'], function(){
 	// dang ky dang nhap
-	Route::get('dangky', ['as' => 'dangky' , 'uses' => 'AuthController@dangky']);
-	Route::post('dangky', 'AuthController@postDangky');
-	Route::get('dangnhap', ['as' => 'dangnhap', 'uses' => 'AuthController@getLogin']);
+	Route::get(	'dangky', 	['as' => 'dangky' , 	'uses' => 'AuthController@dangky']);
+	Route::post('dangky', 	'AuthController@postDangky');
+	Route::get(	'dangnhap', ['as' => 'dangnhap', 	'uses' => 'AuthController@getLogin']);
 	Route::post('dangnhap', 'AuthController@postLogin');
-	Route::get('dangxuat', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
+	Route::get(	'dangxuat', ['as' => 'logout', 		'uses' => 'AuthController@getLogout']);
 	Route::group(['middleware' => 'auth'], function(){
-		Route::get('trangquanly' , ['as' => 'trangquanly', 'uses' => 'AuthController@trangquanly']);
+		Route::get('trangquanly' , 			['as' => 'trangquanly', 'uses' => 'AuthController@trangquanly']);
+
+		Route::get('thongtintaikhoan/{id}', 'UserController@thongtintk');
+		Route::get('taikhoan/edit/{id}', 	'UserController@suataikhoan');
+		Route::post('taikhoan/edit/{id}', 	'UserController@postsuataikhoan');
 	});
 	Route::group(['middleware' => 'nhanvien'], function(){
 		Route::get('allusers', 'UserController@allUsers');
@@ -58,9 +62,13 @@ Route::group(['namespace' => 'Auth'], function(){
 		Route::post('themdanhmuc', 'DanhMucController@postthemdanhmuc');
 		Route::get('xoadanhmuc/{id}', 'DanhMucController@xoasanpham');
 
-		Route::get('thongtintaikhoan/{id}', 'UserController@thongtintk');
-		Route::get('taikhoan/edit/{id}', 'UserController@suataikhoan');
-		Route::post('taikhoan/edit/{id}', 'UserController@postsuataikhoan');
+		Route::get('timkiem', 'SanPhamController@timkiem');
+		Route::get('dathang', 'SanPhamController@datHang');
+
+		Route::get('themtintuc', 'TinTucController@themtintuc');
+		Route::post('themtintuc','TinTucController@postthemtintuc');
+		Route::get('quanlytintuc','TinTucController@quanlytintuc');
+		Route::get('suatintuc/{id}','TinTucController@suatintuc');
 	});
 	
 });

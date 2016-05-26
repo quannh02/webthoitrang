@@ -17,7 +17,7 @@ class Nhanvien
     public function handle($request, Closure $next)
     {
         if(!Auth::check() or $request->user()->role!='nhanvien') {
-            if(!Auth::check() or $request->user()->role != 'admin'){
+            if($request->user()->role != 'admin'){
                 return redirect('unauthorized');
             }
             return $next($request);
