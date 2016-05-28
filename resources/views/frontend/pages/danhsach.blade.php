@@ -1,20 +1,42 @@
 @extends('frontend.layout')
 @section('breadcum')
                 <h1 class="mainTitle">
-                        Quần Áo Nam<label class="subtit">(602 sản phẩm)</label></h1>
+                        Quần Áo Nam<label class="subtit"></label></h1>
                     <div class="sort_gnavi">
-                        <div class="dropdown">
-                            <a href="" class="head">
-                                Mới - Cũ<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="">Mới - Cũ</a></li>
-                                <li><a href="">Giá tăng - giảm</a></li>
+                    
+                        <!-- end dropdown -->
+                    </div>   
+
+@endsection
+@section('danhmuc')
+    <div class="cate-vertical">
+                    <div class="wap" style="position: relative;">
+                        <div class="cate-header">
+                            <div class="title">
+                                <span>Tất cả danh mục</span></div>
+                           
+                        </div>
+
+                        <div class="cate-content">
+                            <ul>
+                                <li>
+                                    <h2>
+                                        Quần Áo</h2>
+                                </li>
+                                
+                                 @foreach($cates as $cate)
+                                                
+                                    <li class="lisub"><a class="asub" href="{{ url('danhmuc', $cate->c_id)}}">
+                                      {{ $cate->c_name }}</a>
+                                    </li>
+                                                
+                                 @endforeach
+                                
                             </ul>
                         </div>
-                        <!-- end dropdown -->
-                        <p>
-                            Sắp xếp theo</p>
-                    </div>   
+                        
+                    </div>
+                </div>
 @endsection
 @section('content')
     <div class="all-items">

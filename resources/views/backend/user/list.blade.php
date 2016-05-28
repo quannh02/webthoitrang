@@ -7,11 +7,11 @@
     	<thead>
 	      <tr>
 	        <th>Id</th>
-	        <th>Username</th>
+	        <th>Tên</th>
 	        <th>Email</th>
-	        <th>Age</th>
-	        <th>City</th>
-	        <th>Country</th>
+	        <th>Địa chỉ</th>
+	        <th>Role</th>
+	        <th>Sửa/Xóa</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -20,18 +20,13 @@
 	        <td>{{ $user->user_id }}</td>
 	        <td>{{ $user->username }}</td>
 	        <td>{{ $user->email }}</td>
-	        <td>35</td>
-	        <td>New York</td>
+	        <td>{{ $user->address }}</td>
+	        <td>{{ $user->role }}</td>
 	        <td class=" ">
-              <center>
-                <a href="" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                <div class="pull-right">
-                       {!! Form::open(array('url' => array('user/destroy', $user->user_id ))) !!}
-                       <button type="submit" class="btn btn-danger add-tooltip"  onclick="return xacnhanxoa('Bạn có muốn xóa không?');" data-toggle="tooltip" href="#" data-original-title="Delete" data-container="body"><i class="fa fa-times"></i></button>
-                       {!! Form::close() !!}
-                </div>
-                <a class="btn btn-danger btn-sm" data-confirm="Bạn muốn Xóa bài hát [Thằng Cuội - Ost Tôi Thấy Hoa Vàng Dưới Cỏ Xanh]?" data-method="delete" href="/user_songs/5990" rel="nofollow"><i class="fa fa-trash-o"></i></a>
-              </center>
+              	<center>
+                	<a style="float:left" href="{{ url('suanguoidung', $user->user_id )}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                	<a style="float:left" value="Delete" href="{{ url('deletenguoidung', $user->user_id) }}" onclick="return xacnhanxoa('Bạn có muốn xóa không?');" class="btn btn-danger btn-delete btn-sm"><i class="fa fa-trash-o"></i></a>
+            	</center>
             </td>
 	      </tr>
 	      @endforeach

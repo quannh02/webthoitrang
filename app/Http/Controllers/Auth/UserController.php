@@ -35,4 +35,27 @@ class UserController extends Controller
         $user->save();
         return redirect('thongtintaikhoan/' . $user->user_id);
     }
+
+   
+    public function suanguoidung($id)
+    {
+        $user = User::where('user_id', $id)->get()->first();
+        return view('backend.user.sua',compact('user'));
+    }
+
+
+    public function suapassnguoidung($id){
+        $tintuc = User::find($id);
+        $tintuc->password = Hash::make(Input::get('password'));
+        $tintuc->save();
+        return redirect('allusers');
+    }
+    
+    public function deletetintuc($id)
+    {
+        $tintuc = User::where('user_id', $id)->get()->first();
+        User::where('user_id', $id)->delete();
+        return redirect('allusers')->with('message','Bạn đã xóa thành công');
+    }
+
 }

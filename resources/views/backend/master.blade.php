@@ -86,33 +86,19 @@
       <a href="{{ url('quanlydanhmuc')}}"><i class="fa fa-cube" style="margin-right:10px"></i>Quản lý danh mục</a>
     </li>
     <li class="">
-      <a href="/authors"><i class="fa fa-pencil" style="margin-right:10px"></i>Quản lý tin tức</a>
+      <a href="{{ url('quanlytintuc')}}"><i class="fa fa-pencil" style="margin-right:10px"></i>Quản lý tin tức</a>
     </li>
     <li class="">
       <a href="{{ url('allusers') }}"><i class="fa fa-microphone" style="margin-right:10px"></i>Quản lý thành viên</a>
     </li>
-    <li class="">
-      <a href="/user_songs"><i class="fa fa-star" style="margin-right:10px"></i>Kho VIP</a>
-    </li>
-    <li class="">
-      <a href="/footers/1/edit"><i class="fa fa-edit" style="margin-right:10px"></i>Quản lý footer</a>
-    </li>
+    
   </ul>
 </div>
 
 
      </div>
      <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-        <div class="alert alert-info alert-dismissable">
-  			   <button type="button" class="close" data-dismiss="alert" aria-hidden="false">×</button>
-  			   <h4>Thông báo mới:</h4>
-  		     
-            <ul>
-
-		            <li><b>5</b> bài hát mới cần được duyệt</li>
-		            <li><b>8</b> yêu cầu hợp âm</li>
- 		         </ul>
-		    </div>
+       
 	<br>
 	<hr>
    @if(Session::has('message'))

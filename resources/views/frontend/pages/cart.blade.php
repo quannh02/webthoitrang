@@ -27,7 +27,7 @@
 		<a href=""><img src="{{ url('public/frontend/images', $value['image'])}}" alt=""></a>
 		</td>
 		<td class="cart_description">
-		<h4><a href="">{{$value['name'] }}</a></h4>
+		<h4><a href="{{ url('chitiet', $value['id']) }}">{{$value['name'] }}</a></h4>
 		<p class="idcartitem">{{$value['id']}}</p>
 		</td>
 		<td class="cart_price">

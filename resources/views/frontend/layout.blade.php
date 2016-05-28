@@ -39,7 +39,7 @@
 	            </div>
 	            <div class="header-phone">
 	                <p class="phone">
-	                    911
+	                    0971315978
 	                </p>
 	            </div>
 	            <div class="account">
@@ -101,33 +101,11 @@
 	            
 	            <li class="pa"><a href="/hot-deal/101/sale-off" class="palink">
 	                Sale off</a>
-	                <div class="contentSubmenu">
-	                    <ul class="">
-	   
-	                        
-	                        <li><a href="/hot-deal/135/thoi-trang-nam-sale">
-	                            Thời trang nam SALE</a></li>
-	                        
-	                        <li><a href="/hot-deal/136/giay-dep-nam-sale">
-	                            Giày dép nam SALE</a></li>
-	                        
-	                        <li><a href="/hot-deal/137/dong-ho-nam-sale">
-	                            Đồng hồ nam SALE</a></li>
-	                        
-	                        <li><a href="/hot-deal/138/phu-kien-sale">
-	                            Phụ kiện SALE</a></li>
-	                        
-	                        <li><a href="/hot-deal/139/phu-kien-hitech-sale">
-	                            Phụ kiện Hitech SALE</a></li>
-	                        
-	                        <li><a href="/hot-deal/140/sale-off-khac">
-	                            Sale off khác</a></li>
-	                        
-	                    </ul>
-	                </div>
 	            </li>
 	            
-	            <li class="pa"><a href="/dang-hot" class="palink">Top sale</a></li>
+	    		<li class="pa"><a href="/hot-deal/101/sale-off" class="palink">
+	                Tin Tức</a>
+	            </li>
 	        </ul>
 	        <div class="clearfix">
 	        </div>
@@ -139,7 +117,6 @@
     <div class="pfull clearfix">
         <div id="category" class="productList productListMedium clearfix">
             
-	@yield('breadcum')     
            <div class="slide-products clearfix">
     @yield('danhmuc')
                 

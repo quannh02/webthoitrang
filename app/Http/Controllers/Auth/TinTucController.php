@@ -50,15 +50,35 @@ class TinTucController extends Controller
         return view('backend.news.sua',compact('tintuc'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function postsuatintuc($id){
+        $tintuc = TinTuc::find($id);
+        $tintuc->new_name = Input::get('new_name');
+        if (Input::hasFile('new_images')) {
+        $file = Input::file('new_images');
+        $destinationPath = base_path(). "/public/frontend/images/";
+
+        // $function = new MyFunction;
+        // $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
+        $tintuc->new_images = $file->getClientOriginalName();
+        $fileName = $destinationPath . $tintuc->new_images;
+        //dd($file); die();
+            if ($file->isValid()) {
+                $file->move($destinationPath, $fileName);
+            }   
+        }
+        $tintuc->new_detail =   Input::get('new_detail');
+        $tintuc->save();
+        return redirect('quanlytintuc');
+    }
+    
+    public function deletetintuc($id)
     {
-        //
+        $tintuc = TinTuc::where('new_id', $id)->get()->first();
+
+        unlink('public/frontend/images/' .  $tintuc->new_images);
+        TinTuc::where('new_id', $id)->delete();
+        return redirect('quanlytintuc')->with('message','Bạn đã xóa thành công');
     }
 
     /**

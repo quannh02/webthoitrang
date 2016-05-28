@@ -312,8 +312,9 @@ hr {
     padding: 0 10px 0 30px
 }
 #pheader .header-phone .phone {
-    background: url(../../ThemeV6/images/icon_phone.png) no-repeat center left;
+ 
     padding-left: 50px;
+    font-size: 14px;
     height: 40px
 }
 #pheader .account {

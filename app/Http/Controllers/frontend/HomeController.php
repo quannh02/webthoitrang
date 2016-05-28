@@ -17,6 +17,7 @@ use App\Product;
 use App\Category;
 use App\Order;
 use App\DetailOrder;
+use App\Http\Requests\GioHangRequest;
 //use Anam\Phpcart\Cart;
 class HomeController extends Controller
 {
@@ -53,8 +54,8 @@ class HomeController extends Controller
 
     }
     
-    public function themvaogio($id){
-        $size = Input::get('sizechose');
+    public function themvaogio($id, GioHangRequest $request){
+        $size = $request->sizechose;
         $product = Product::find($id);
         $index = -1;
             if(Session::has('giohang')) {

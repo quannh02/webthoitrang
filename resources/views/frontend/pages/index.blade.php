@@ -1,21 +1,5 @@
 @extends('frontend.layout')
-@section('breadcum')
-                <h1 class="mainTitle">
-                        Quần Áo Nam<label class="subtit">(602 sản phẩm)</label></h1>
-                    <div class="sort_gnavi">
-                        <div class="dropdown">
-                            <a href="" class="head">
-                                Mới - Cũ<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="">Mới - Cũ</a></li>
-                                <li><a href="">Giá tăng - giảm</a></li>
-                            </ul>
-                        </div>
-                        <!-- end dropdown -->
-                        <p>
-                            Sắp xếp theo</p>
-                    </div>   
-@endsection
+
 @section('danhmuc')
     <div class="cate-vertical">
                     <div class="wap" style="position: relative;">
@@ -42,14 +26,7 @@
                                 
                             </ul>
                         </div>
-                        <div class="box-search">
-                            <form action="/tim-kiem" method="get" id="form-nav-search-cate">
-                            <input type="text" placeholder="Nhập tên sản phẩm..." name="q" id="vckeyword" class="key">
-                            <button class="btn-search" type="submit">
-                                Tìm kiếm
-                            </button>
-                            </form>
-                        </div>
+                        
                     </div>
                 </div>
 @endsection
@@ -63,11 +40,11 @@
                             <span class="productName">
                                 {{ $ao->pro_name }} - {{ $ao->pro_code }}
                             </span> <span class="price"><span>
-                                    280.000</span>
+                                    </span>
                                     {{ number_format($ao->pro_price, 0) }}
                                 </span>
                             
-                            <a href="{{url('chitiet', $ao->pro_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi tiết</a>
+                            <a href="{{url('chitiet', $ao->pro_id)}}" class="btn btn-default add-to-cart">Chi tiết</a>
                         </a>
                     </div>
                     @endforeach
@@ -79,11 +56,11 @@
                             <span class="productName">
                                 {{ $ao->pro_name }} - {{ $ao->pro_code }}   
                             </span> <span class="price"><span>
-                                    467.000</span>
+                                    </span>
                                     {{ $ao->pro_price }}
                                 </span>
                             
-                            <a href="{{ url('chitiet', $ao->pro_id )}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi tiết</a>
+                            <a href="{{ url('chitiet', $ao->pro_id )}}" class="btn btn-default add-to-cart">Chi tiết</a>
                         </a>
                     </div>
                     @endforeach

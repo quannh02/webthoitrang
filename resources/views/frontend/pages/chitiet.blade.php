@@ -32,8 +32,11 @@
 						<i style="color:gray">trong 1 - 2 ngày làm việc</i></div>
 					<div class="mausac"></div>
 				</div>
-		
+				
 				<div class="muahang">
+					@if ($errors->has('sizechose'))
+    					<span class="error">{{ $errors->first('sizechose') }}</span>
+					@endif
 					<div class="kichco">Chọn kích cỡ<br>
 					</div>
 							
@@ -69,12 +72,14 @@
                             <img  src="{{ url('public/frontend/images', $product->pro_images) }}" style="display: block;"></span>
                             <span class="productName">
                                  {{ $product->pro_name }} - {{ $product->pro_code }}   
-                            </span> <span class="price"><span>
-                                    280.000</span>
-                                    
+                            </span><span> </span> <span class="price">
+                            {{ $product->pro_price }}
+                                   </span>
+                                    <span>
+
                                 </span>
                             
-                            <a href="{{url('chitiet', $product->pro_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi tiết</a>
+                            <a href="{{url('chitiet', $product->pro_id)}}" class="btn btn-default add-to-cart">Chi tiết</a>
                         </a>
                 </div>
                 

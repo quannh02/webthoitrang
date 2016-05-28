@@ -44,7 +44,7 @@
 	        <td class=" ">
               <center>
                 <a style="float:left" href="{{ url('suatintuc', $tintuc->new_id )}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                <a style="float:left" data-id="{{ $tintuc->new_id }}" value="Delete" href="{{ url('xoatintuc', $tintuc->new_id) }}" onclick="return xacnhanxoa('Bạn có muốn xóa không?');" class="btn btn-danger btn-delete btn-sm"><i class="fa fa-trash-o"></i></a>
+                <a style="float:left" data-id="{{ $tintuc->new_id }}" value="Delete" href="{{ url('deletetintuc', $tintuc->new_id) }}" onclick="return xacnhanxoa('Bạn có muốn xóa không?');" class="btn btn-danger btn-delete btn-sm"><i class="fa fa-trash-o"></i></a>
               </center>
             </td>
 	      </tr>

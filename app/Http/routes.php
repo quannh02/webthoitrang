@@ -48,6 +48,10 @@ Route::group(['namespace' => 'Auth'], function(){
 	});
 	Route::group(['middleware' => 'nhanvien'], function(){
 		Route::get('allusers', 'UserController@allUsers');
+		Route::get('suanguoidung/{id}','TinTucController@suanguoidung');
+		Route::post('suanguoidung/{id}', 'TinTucController@suapassnguoidung');
+		Route::get('deletenguoidung/{id}', 'TinTucController@deletenguoidung');
+
 		Route::get('quanlysanpham', 'SanPhamController@index');
 		Route::get('themsanpham', 'SanPhamController@viewthemsanpham');
 		Route::post('themsanpham', 'SanPhamController@themsanpham');
@@ -69,6 +73,8 @@ Route::group(['namespace' => 'Auth'], function(){
 		Route::post('themtintuc','TinTucController@postthemtintuc');
 		Route::get('quanlytintuc','TinTucController@quanlytintuc');
 		Route::get('suatintuc/{id}','TinTucController@suatintuc');
+		Route::post('suatintuc/{id}', 'TinTucController@postsuatintuc');
+		Route::get('deletetintuc/{id}', 'TinTucController@deletetintuc');
 	});
 	
 });
