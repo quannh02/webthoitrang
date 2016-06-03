@@ -32,8 +32,8 @@ class HomeController extends Controller
 
     public function chitiet($id){
         $cates = Category::all();
-        $productcungloai = Product::whereNotIn('pro_id', [$id])->paginate(16);
         $product = Product::where('pro_id', $id)->get()->first();
+        $productcungloai = Product::whereNotIn('pro_id', [$id])->where('c_id', $product->c_id)->paginate(16);
         return view('frontend.pages.chitiet', compact('product', 'cates', 'productcungloai'));
     }  
 

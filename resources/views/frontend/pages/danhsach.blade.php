@@ -47,8 +47,7 @@
                             <img  src="{{ url('public/frontend/images', $product->pro_images) }}" style="display: block;"></span>
                             <span class="productName">
                                 {{ $product->pro_name }} - {{ $product->pro_code }}
-                            </span> <span class="price"><span>
-                                    280.000</span>
+                            </span> <span class="price">
                                     {{ number_format($product->pro_price, 0) }}
                                 </span>
                             

@@ -65,6 +65,5 @@
     	</tbody>
   	</table>
   </div>
-  <?php echo $products->render(); ?>
         </div>
 @endsection

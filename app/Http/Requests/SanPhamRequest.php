@@ -27,9 +27,9 @@ class SanPhamRequest extends Request
             'pro_name' => 'required',
             'pro_images' => 'required|image',
             'pro_color' => 'required',
-            'sizes' => 'required',
-            'sizel' => 'required',
-            'sizem' => 'required'
+            'pro_sizeS' => 'required',
+            'pro_sizeL' => 'required',
+            'pro_sizeM' => 'required'
         ];
     }
     

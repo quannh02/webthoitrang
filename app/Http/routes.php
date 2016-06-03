@@ -52,7 +52,7 @@ Route::group(['namespace' => 'Auth'], function(){
 		Route::post('suanguoidung/{id}', 'TinTucController@suapassnguoidung');
 		Route::get('deletenguoidung/{id}', 'TinTucController@deletenguoidung');
 
-		Route::get('quanlysanpham', 'SanPhamController@index');
+		Route::get('quanlysanpham', ['as' => 'quanlysanpham' , 'uses' => 'SanPhamController@index']);
 		Route::get('themsanpham', 'SanPhamController@viewthemsanpham');
 		Route::post('themsanpham', 'SanPhamController@themsanpham');
 		Route::get('suasanpham/{id}', 'SanPhamController@suasanpham');
