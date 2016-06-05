@@ -11,6 +11,8 @@ use App\Http\Requests\DatHangRequest;
 use Session;
 use Mail;
 
+use Auth;
+use App\User;
 use App\Item;
 use App\Customer;
 use App\Product;
@@ -185,12 +187,17 @@ class HomeController extends Controller
         return view('frontend.pages.dat', compact('cates'));
     }
 
+    public function datHangDn(){
+        $user = User::find(Auth::user()->user_id);
+        $tongtien = $this->tongtien();
+        return view('backend.order.order', compact('user', 'tongtien'));
+    }
     public function postdatHang(DatHangRequest $request){
         if(Session::has('giohang')){
         $customer = Customer::create([
             'name' => $request->namenguoigui,
             'email' => $request->emailnguoigui,
-            'address' => $request->sdtnguoigui,
+            'address' => $request->addressnguoigui,
             'sodienthoai' => $request->sdtnguoigui
             ]);
         $order = new Order([
@@ -208,7 +215,7 @@ class HomeController extends Controller
             ]);
             $order->detailorder()->save($orderdetail);
         }
-        return redirect()->route('datthanhcong');
+        return redirect()->route('trangchu')->with('message', 'Bạn đã đặt hàng thành công, chúng tôi sẽ liên hệ với bạn vào thời gian sớm nhất');
         }
         return redirect('gio-hang')->with('message', 'Bạn chưa có giỏ hàng nào');
     }
@@ -218,16 +225,10 @@ class HomeController extends Controller
         return view('frontend.pages.thongbao');
     }
    
-    public function getlienhe(){
-        return view('frontend.pages.lienhe');
-    } 
-    
-    public function postlienhe(Request $request){
-        $data = ['hoten' => $request->name, 'tinnhan' => $request->message];
-        Mail::send('email.blanks', $data, function($message){
-            $message->from('quannguyenetv@gmail.com','Bui Nguyên Ba');
-            $message->to('quannh02@wru.vn', 'Connan Vu')->subject('Đây là mail test');
-        });
-        
+    public function timkiem(){
+        $cates = Category::all();
+        $q = Input::get('q');
+        $products = Product::where('pro_name', 'LIKE', '%'.$q.'%')->orWhere('pro_code', 'LIKE', '%'.$q. '%')->get();
+        return view('frontend.pages.timkiem', compact('products', 'cates'));
     }
 }

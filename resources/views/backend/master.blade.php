@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/w3.css')}}">
     <link rel="stylesheet" href="{{ url('public/frontend/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url('public/frontend/css/style.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/delete.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/bootstrap.min.js') }}"></script>
@@ -41,7 +42,7 @@
           <span class="ui-helper-hidden-accessible"></span>
           <input type="text" name="q" class="search form-control" placeholder="Tìm kiếm... (sản phẩm, tin tức...)">
           <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><i class="fa fa-search" style="margin-right:5px"></i>Tìm kiếm</button>
+            <button class="btn btn-default" type="submit">Tìm kiếm</button>
           </div>
         </div>
       </form>
@@ -51,7 +52,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="glyphicon glyphicon-user" style="margin-right:10px"></i>
+            
             {{ Auth::user()->username }}
             <span class="caret"></span>
           </a>
@@ -74,27 +75,30 @@
 
   <div class="container" style="margin-top:40px">
     <div class="row">
+    @if(Auth::user()->role == 'admin' or Auth::user()->role == 'nhanvien')
       <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+      
         <div style="margin-top:100px">
-  <ul class="nav bs-docs-sidenav">
-    <li class="active">
-      <a href="{{ url('quanlysanpham') }}"><i class="fa fa-book" style="margin-right:10px"></i>Quản lý sản phẩm</a>
-    </li>
-    <li class="">
-      <a href="{{ url('quanlydanhmuc')}}"><i class="fa fa-cube" style="margin-right:10px"></i>Quản lý danh mục</a>
-    </li>
-    <li class="">
-      <a href="{{ url('quanlytintuc')}}"><i class="fa fa-pencil" style="margin-right:10px"></i>Quản lý tin tức</a>
-    </li>
-    <li class="">
-      <a href="{{ url('allusers') }}"><i class="fa fa-microphone" style="margin-right:10px"></i>Quản lý thành viên</a>
-    </li>
-    
-  </ul>
-</div>
-
+          <ul class="nav bs-docs-sidenav">
+            <li class="active">
+              <a href="{{ url('quanlysanpham') }}">Quản lý sản phẩm</a>
+            </li>
+            <li class="">
+              <a href="{{ url('quanlydanhmuc')}}">Quản lý danh mục</a>
+            </li>
+            <li class="">
+              <a href="{{ url('quanlytintuc')}}">Quản lý tin tức</a>
+            </li>
+            <li class="">
+              <a href="{{ url('allusers') }}">Quản lý thành viên</a>
+            </li>
+            
+          </ul>
+        </div>
 
      </div>
+      @endif
+     
      <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
        
 	<br>

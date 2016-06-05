@@ -1,5 +1,4 @@
 @extends('frontend.layout')
-
 @section('danhmuc')
     <div class="cate-vertical">
                     <div class="wap" style="position: relative;">
@@ -31,42 +30,22 @@
                 </div>
 @endsection
 @section('content')
-                @if(Session::has('message'))
-            <p class="alert">{{     Session::get('message') }}</p>
-                @endif
-                <div class="all-items">
-                    @foreach($aosominam as $ao)
+		<div class="all-items">
+                    @foreach($products as $product)
                     <div class="productItem" dealid="11547">
-                        <a href="{{ url('chitiet', $ao->pro_id )}}" ecimpression=""><span class="product-img">
+                        <a href="{{ url('chitiet', $product->pro_id )}}" ecimpression=""><span class="product-img">
                             
-                            <img  src="{{ url('public/frontend/images', $ao->pro_images) }}" style="display: block;"></span>
+                            <img  src="{{ url('public/frontend/images', $product->pro_images) }}" style="display: block;"></span>
                             <span class="productName">
-                                {{ $ao->pro_name }} - {{ $ao->pro_code }}
+                                {{ $product->pro_name }} - {{ $product->pro_code }}
                             </span> <span class="price"><span>
                                     </span>
-                                    {{ number_format($ao->pro_price, 0) }}
+                                    {{ number_format($product->pro_price, 0) }}
                                 </span>
                             
-                            <a href="{{url('chitiet', $ao->pro_id)}}" class="btn btn-default add-to-cart">Chi tiết</a>
-                        </a>
-                    </div>
-                    @endforeach
-                    @foreach($aothunnam as $ao)
-                    <div class="productItem" dealid="11547">
-                        <a href="{{ url('chitiet', $ao->pro_id )}}" ecimpression=""><span class="product-img">
-                            
-                            <img src="{{ url('public/frontend/images', $ao->pro_images) }}" style="display: block;"></span>
-                            <span class="productName">
-                                {{ $ao->pro_name }} - {{ $ao->pro_code }}   
-                            </span> <span class="price"><span>
-                                    </span>
-                                    {{ $ao->pro_price }}
-                                </span>
-                            
-                            <a href="{{ url('chitiet', $ao->pro_id )}}" class="btn btn-default add-to-cart">Chi tiết</a>
+                            <a href="{{url('chitiet', $product->pro_id)}}" class="btn btn-default add-to-cart">Chi tiết</a>
                         </a>
                     </div>
                     @endforeach
                 </div>
-                
 @endsection

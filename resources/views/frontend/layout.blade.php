@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head id="Head1">   
     <title>
@@ -30,7 +30,7 @@
 	                <img src="{{ url('public/frontend/images/bashoplogo.png') }}">
 	            </div>
 	            <div class="form-search">
-	                <form id="form-nav-search-fix" method="get" action="/tim-kiem">
+	                <form id="form-nav-search-fix" method="get" action="{{ url('tim-kiem')}}">
 	                <input type="text" class="key-search" id="keyword" name="q" placeholder="Nhập tên sản phẩm...">
 	                <button type="submit" class="btn-search">
 	                    <span class="icon-search"></span>

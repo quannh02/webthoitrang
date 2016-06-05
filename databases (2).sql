@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2016 at 10:08 PM
+-- Generation Time: Jun 05, 2016 at 08:34 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -59,16 +59,51 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `cus_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sodienthoai` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`cus_id`, `name`, `email`, `sodienthoai`, `address`, `created_at`, `updated_at`) VALUES
+(7, 'Nguyên X', 'nguyenx@gmail.com', '0909909009', 'Phan Đình Phùng, Hà Tĩnh', '2016-06-05 09:42:39', '2016-06-05 09:42:39');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `detailoder`
 --
 
 CREATE TABLE `detailoder` (
   `det_id` int(11) NOT NULL,
-  `ord_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
   `pro_id` int(11) NOT NULL,
+  `det_size` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `det_number` int(11) NOT NULL,
   `det_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `detailoder`
+--
+
+INSERT INTO `detailoder` (`det_id`, `order_id`, `pro_id`, `det_size`, `created_at`, `updated_at`, `det_number`, `det_price`) VALUES
+(3, 5, 9, 'm', '2016-06-05 09:42:40', '2016-06-05 09:42:40', 1, 215000),
+(4, 5, 21, 's', '2016-06-05 09:42:40', '2016-06-05 09:42:40', 1, 115000),
+(5, 5, 11, 's', '2016-06-05 09:42:40', '2016-06-05 09:42:40', 2, 199000);
 
 -- --------------------------------------------------------
 
@@ -103,7 +138,7 @@ INSERT INTO `news` (`new_id`, `new_name`, `new_images`, `new_detail`, `created_a
 
 CREATE TABLE `orders` (
   `ord_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `ord_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ord_phone` int(100) NOT NULL,
   `ord_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -111,8 +146,17 @@ CREATE TABLE `orders` (
   `ord_condition` int(1) NOT NULL,
   `ord_enddate` datetime NOT NULL,
   `ord_total` int(11) NOT NULL,
-  `ord_note` longtext COLLATE utf8_unicode_ci NOT NULL
+  `ord_note` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`ord_id`, `customer_id`, `ord_name`, `ord_phone`, `ord_address`, `ord_timeoder`, `ord_condition`, `ord_enddate`, `ord_total`, `ord_note`, `created_at`, `updated_at`) VALUES
+(5, 7, 'Phạm Văn Duc', 999999999, '175 Tây Sơn', '2016-06-05 16:42:40', 0, '0000-00-00 00:00:00', 0, '', '2016-06-05 09:42:40', '2016-06-05 09:42:40');
 
 -- --------------------------------------------------------
 
@@ -217,10 +261,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `fullname`, `address`, `email`, `sodienthoai`, `active`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Bùi Nguyên Ba', '$2y$10$UYLs4FHleKfp/tLIyxfmJepexVjkHNqrUQsH8Ssj61yjmaqWKfDv6', '', 'Ngõ 10, Tôn Thất Tùng, Đống Đa, Hà Nội', 'buinguyenba@gmail.com', '0971315978', 1, 'admin', 'ceMyYVKwd9u9XbWmQufVqfleevsXc3je221QpWdQRrITUjHzS5fvRE0NaFAZ', '2016-06-03 16:51:53', '2016-06-03 09:51:53'),
+(3, 'Bùi Nguyên Ba', '$2y$10$UYLs4FHleKfp/tLIyxfmJepexVjkHNqrUQsH8Ssj61yjmaqWKfDv6', '', 'Ngõ 10, Tôn Thất Tùng, Đống Đa, Hà Nội', 'buinguyenba@gmail.com', '0971315978', 1, 'admin', 'PtcANFsYbMtnzIBFrQInVNgOiEbMqD8cT4SvxIHiRjen3YlM8N9tZDphBNYl', '2016-06-05 15:07:18', '2016-06-05 08:07:18'),
 (4, 'Lại Thị Nhạn', '$2y$10$K.l0pR8huKN5s9.vxbEGM.AQY4oQD4UEb4b6jzGYyo1yi9ALDXMnS', '', '', 'laithinhan@gmail.com', '', 1, 'nhanvien', '3VkyoCEk5ZWKPOiIwVevJp4NZaO8z4FwKvavpOoiT0NnLYyEeKS15JkLAGif', '2016-05-11 04:39:05', '2016-05-10 21:39:05'),
 (5, 'Phạm Văn Đức', '$2y$10$X9ugUNu2pF5QMj7bMIqgXOHYLgv911Ik/ODEMc.euUEUetJxMPgwu', '', '', 'phamvanduc@gmail.com', '', 1, 'nhanvien', 'KZYQSS7QNWKc4t1C5mznx5TUmrhh4XAEjfy6MhX4VhNck7OC4WFX9s01eo6U', '2016-06-03 16:52:43', '2016-06-03 09:52:43'),
-(6, 'Nguyên X', '$2y$10$zC6DJI5KGfTb8ETKRp6rGup.jbK4PQ12q1oXpu0veH5WALHjGU/ri', '', '', 'nguyenx@gmail.com', '', 1, 'member', 'fEH7j1LOPHc97vmKJOrK010PjxmyMhaUl7ve8NFkLw2OqcTpUCF9csw2r1ji', '2016-06-03 16:35:58', '2016-06-03 09:35:58'),
+(6, 'Nguyên X', '$2y$10$zC6DJI5KGfTb8ETKRp6rGup.jbK4PQ12q1oXpu0veH5WALHjGU/ri', '', 'Phan Đình Phùng, Hà Tĩnh', 'nguyenx@gmail.com', '0909909009', 1, 'member', '4YoefOKrPQobwDZdCSW3J3oGwZ7TwARqVcvgDae0huHK9IpswRDtJetRuPgr', '2016-06-05 15:44:14', '2016-06-05 08:44:14'),
 (7, 'Pham Chuan', '$2y$10$FiDfe1McB7JK1FYf3sfipOkJL48zF2TFJ3cBPL5wzWxfZ9ziqad52', '', '', 'phamchuan@gmail.com', '', 1, 'member', '9ZrRuZwOs5zUv5MchvmdqooGBvIHBqgS1YNbEnIw', '2016-05-11 04:22:16', '2016-05-08 21:03:46');
 
 --
@@ -238,6 +282,12 @@ ALTER TABLE `category`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`com_id`);
+
+--
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`cus_id`);
 
 --
 -- Indexes for table `detailoder`
@@ -290,20 +340,25 @@ ALTER TABLE `category`
 ALTER TABLE `comment`
   MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT for table `detailoder`
 --
 ALTER TABLE `detailoder`
-  MODIFY `det_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `det_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `new_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `new_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `product`
 --

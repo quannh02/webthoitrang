@@ -14,6 +14,7 @@ use App\Http\Requests\DangNhapRequest;
 use Auth;
 use Input;
 use App\Category;
+use Session;
 
 class AuthController extends Controller
 {
@@ -64,8 +65,13 @@ class AuthController extends Controller
         ];
         // kiểm trả tên email và password có trong database hay khong
         if(Auth::attempt($user)){
-            //Auth::login($user, true);
-            return redirect()->route('trangquanly');
+            //kiểm tra giỏ hàng
+            if(Session::has('giohang')){
+                    return redirect()->route('dathang');
+                } else {
+                //Auth::login($user, true);
+                return redirect()->route('trangquanly');
+            }
         } else {
             //echo 'fail'; die();
             return redirect()->route('dangnhap');

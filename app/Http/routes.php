@@ -15,7 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['namespace' => 'frontend'], function(){
-	Route::get('index', 'HomeController@index');
+	Route::group(['middleware' => 'auth'], function(){
+		Route::get('dat-hang2', ['as' => 'dathang', 'uses' => 'HomeController@datHangDn']);
+	});
+
+	Route::get('tim-kiem', 'HomeController@timkiem');
+	Route::get('index', ['as'=>'trangchu', 'uses'=> 'HomeController@index']);
 
 	Route::get('danhmuc/{id}', 'DanhMucController@danhmucsanpham');
 	Route::get('chitiet/{id}', ['as' => 'chitiet', 'uses' => 'HomeController@chitiet']);
@@ -40,12 +45,14 @@ Route::group(['namespace' => 'Auth'], function(){
 	Route::post('dangnhap', 'AuthController@postLogin');
 	Route::get(	'dangxuat', ['as' => 'logout', 		'uses' => 'AuthController@getLogout']);
 	Route::group(['middleware' => 'auth'], function(){
+
 		Route::get('trangquanly' , 			['as' => 'trangquanly', 'uses' => 'AuthController@trangquanly']);
 
 		Route::get('thongtintaikhoan/{id}', 'UserController@thongtintk');
 		Route::get('taikhoan/edit/{id}', 	'UserController@suataikhoan');
 		Route::post('taikhoan/edit/{id}', 	'UserController@postsuataikhoan');
 	});
+	
 	Route::group(['middleware' => 'nhanvien'], function(){
 		Route::get('allusers', 'UserController@allUsers');
 		Route::get('suanguoidung/{id}','TinTucController@suanguoidung');
