@@ -24,7 +24,7 @@
                                 <select class="form-control" name="sltParent">
                                     <option value="">Chọn danh mục</option>
                                     @foreach($category as $cate)
-                                    <option value="{{ $cate->c_id }}">{{ $cate->c_name }}</option>
+                                    <option value="{{ $ ->c_id }}">{{ $cate->c_name }}</option>
                                     @endforeach
                                 </select>
                                 </div>

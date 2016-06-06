@@ -21,7 +21,8 @@ Route::group(['namespace' => 'frontend'], function(){
 
 	Route::get('tim-kiem', 'HomeController@timkiem');
 	Route::get('index', ['as'=>'trangchu', 'uses'=> 'HomeController@index']);
-
+	Route::get('tintuc','HomeController@tintuc');
+	Route::get('chitiettintuc/{id}','HomeController@chitiettintuc');
 	Route::get('danhmuc/{id}', 'DanhMucController@danhmucsanpham');
 	Route::get('chitiet/{id}', ['as' => 'chitiet', 'uses' => 'HomeController@chitiet']);
 	// route giỏ hàng

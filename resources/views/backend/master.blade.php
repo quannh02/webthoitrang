@@ -34,7 +34,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="{{url('index')}}">
         <img src="{{ url('public/frontend/images/bashoplogo.png') }}" style="height:70px">
       </a>
       <form class="navbar-form navbar-left col-lg-12 col-md-12 col-sm-12 col-xs-6" action="{{ url('timkiem') }}" method="GET" id="search-form" style="min-width: 65%; margin-left: 15%;">

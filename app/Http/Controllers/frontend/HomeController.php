@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DatHangRequest;
 use Session;
 use Mail;
-
+use App\TinTuc;
 use Auth;
 use App\User;
 use App\Item;
@@ -230,5 +230,17 @@ class HomeController extends Controller
         $q = Input::get('q');
         $products = Product::where('pro_name', 'LIKE', '%'.$q.'%')->orWhere('pro_code', 'LIKE', '%'.$q. '%')->get();
         return view('frontend.pages.timkiem', compact('products', 'cates'));
+    }
+    public function tintuc()
+    {
+        $cates = Category::all();
+        $tintucs = TinTuc::all();
+        return view('frontend.pages.tintuc', compact('tintucs','cates'));
+    }
+    public function chitiettintuc($id)
+    {
+       $cates = Category::all();
+       $chitiettintuc = TinTuc::where('new_id', $id)->get()->first();
+        return view('frontend.pages.chitiettintuc', compact('chitiettintuc','cates'));
     }
 }

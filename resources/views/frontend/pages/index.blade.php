@@ -4,7 +4,7 @@
     <div class="cate-vertical">
                     <div class="wap" style="position: relative;">
                         <div class="cate-header">
-                            <div class="title">
+                        <div class="title">
                                 <span>Tất cả danh mục</span></div>
                            
                         </div>

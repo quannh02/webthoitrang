@@ -25,7 +25,7 @@ class TinTucController extends Controller
         // $function = new MyFunction;
         // $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
         $tintuc->new_images = $file->getClientOriginalName();
-        $fileName = $destinationPath . $tintuc->new_images;
+        $fileName = $destinationPath . $tintuc->    new_images;
         //dd($file); die();
         if (Input::hasFile('new_images')) {
             if ($file->isValid()) {

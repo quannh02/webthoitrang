@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ url('public/frontend/css/chitiet.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/w3.css')}}">
     <link rel="stylesheet" href="{{ url('public/frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/font-awesome.css') }}">
     <script type="text/javascript" src="{{ url('public/frontend/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/frontend/js/bootstrap.min.js')}}"></script>
 	<script>
@@ -27,18 +27,23 @@
 	    <div id="pheader" class="clearfix">
 	        <div class="pcontainer">
 	            <div class="logo">
-	                <img src="{{ url('public/frontend/images/bashoplogo.png') }}">
+	               <a class="navbar-brand" href="{{url('index')}}">
+      		</a>
 	            </div>
 	            <div class="form-search">
 	                <form id="form-nav-search-fix" method="get" action="{{ url('tim-kiem')}}">
 	                <input type="text" class="key-search" id="keyword" name="q" placeholder="Nhập tên sản phẩm...">
-	                <button type="submit" class="btn-search">
-	                    <span class="icon-search"></span>
+	                <button type="submit" class="btn-success">
+	                  	Tìm kiếm
 	                </button>
 	                </form>
 	            </div>
 	            <div class="header-phone">
+	               
+
+
 	                <p class="phone">
+	                <strong>Liên hệ:</strong>
 	                    0971315978
 	                </p>
 	            </div>
@@ -96,14 +101,7 @@
 	                    </ul>
 	                </div>
 	            </li>
-	           
-	           
-	            
-	            <li class="pa"><a href="/hot-deal/101/sale-off" class="palink">
-	                Sale off</a>
-	            </li>
-	            
-	    		<li class="pa"><a href="/hot-deal/101/sale-off" class="palink">
+	    		<li class="pa"><a href="{{url('tintuc')}}" class="palink">
 	                Tin Tức</a>
 	            </li>
 	        </ul>
@@ -138,35 +136,33 @@
                         <dl class="col-md-4">
                             <dt>về chúng tôi</dt>
                             <dd>
-                                <a href="/thong-tin/5/lien-he">Liên hệ</a></dd>
+                                <a href="#">Liên hệ</a></dd>
                             <dd>
-                                <a href="/thong-tin/7/dieu-khoan-su-dung">Điều khoản sử dụng</a></dd>
+                                <a href="#">Điều khoản sử dụng</a></dd>
                             <dd>
-                                <a href="/thong-tin/61/chinh-sach-bao-hanh">Chính sách bảo hành</a></dd>
-                            <dd>
-                                <a href="/thong-tin/62/chinh-sach-bao-mat-thong-tin">Chính sách bảo mật thông tin</a></dd>
+                                <a href="#">Chính sách bảo mật thông tin</a></dd>
                         </dl>
                         <dl class="col-md-4">
                             <dt>trợ giúp</dt>
                             <dd>
-                                <a href="/thong-tin/1/hoi-dap">Hỏi đáp</a></dd>
+                                <a href="#">Hỏi đáp</a></dd>
                             <dd>
-                                <a href="/thong-tin/2/huong-dan-mua-hang">Hướng dẫn mua hàng</a></dd>
+                                <a href="#">Hướng dẫn mua hàng</a></dd>
                             <dd>
-                                <a href="/thong-tin/12/huong-dan-thanh-toan">Hướng dẫn thanh toán</a></dd>
+                                <a href="#">Hướng dẫn thanh toán</a></dd>
                             <dd>
-                                <a href="/survey">Góp ý - Ý kiến khách hàng</a></dd>
+                                <a href="#">Góp ý - Ý kiến khách hàng</a></dd>
                             <dd>
-                                <a href="/" title="mua hang gia re, mua hang online">Mua hàng giá rẻ</a></dd>
+                                <a href="#" title="mua hang gia re, mua hang online">Mua hàng giá rẻ</a></dd>
                         </dl>
                         <dl class="col-md-4">
                             <dt>hợp tác</dt>
                             <dd>
-                                <a href="/tin-xdeal-chi-tiet/56/hop-tac-kinh-doanh">Hợp tác kinh doanh</a></dd>
+                                <a href="#">Hợp tác kinh doanh</a></dd>
                             <dd>
-                                <a href="/thong-tin/4/lien-he-hop-tac">Liên hệ hợp tác</a></dd>
+                                <a href="#">Liên hệ hợp tác</a></dd>
                             <dd>
-                                <a href="/thong-tin/6/tuyen-dung">Tuyển dụng</a></dd>
+                                <a href="#">Tuyển dụng</a></dd>
                         </dl>
                     </div>
                 

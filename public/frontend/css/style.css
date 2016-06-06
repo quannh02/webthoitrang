@@ -258,18 +258,22 @@ hr {
     padding-right: 50px
 }
 #pheader .logo a {
-    width: 100%;
-    height: 100%;
     display: block;
     overflow: hidden;
-    background: transparent url(../../ThemeV6/images/logo.png) no-repeat left center;
-    text-indent: -999em
+    z-index: 1000;
+    width: 100px;
 }
 #pheader .form-search {
     display: block;
     float: left;
-    width: 350px;
-    position: relative
+    width: 367px;
+}
+#pheader .form-search input{
+    width: 70%;
+}
+#pheader .form-search button{
+    width: 20%;
+    float:left;
 }
 #pheader .form-search .key-search {
     border-radius: 4px;
@@ -278,7 +282,6 @@ hr {
     color: #9f9f9f;
     font-size: 12px;
     display: block;
-    width: 325px;
     padding: 6px 12px
 }
 #pheader .form-search .btn-search {
@@ -3656,12 +3659,6 @@ hr {
         font-size: 14px;
         padding: 0 14px
     }
-    #pheader .form-search {
-        width: 460px
-    }
-    #pheader .form-search .key-search {
-        width: 434px
-    }
     #pheader .account {
         width: 340px
     }
@@ -3683,12 +3680,6 @@ hr {
     }
     #pheader .logo {
         padding-right: 155px
-    }
-    #pheader .form-search {
-        width: 395px
-    }
-    #pheader .form-search .key-search {
-        width: 336px
     }
     #mainBanner {
         width: 100%;
@@ -3854,4 +3845,7 @@ hr {
 }
 td .imagecart{
     width: 50%;
+}
+.logo a{
+    background: url('../images/bashoplogo.png') no-repeat;
 }
