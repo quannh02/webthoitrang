@@ -25,7 +25,6 @@ class SanPhamRequest extends Request
     {
         return [
             'pro_name' => 'required',
-            'pro_images' => 'required|image',
             'pro_color' => 'required',
             'pro_sizeS' => 'required',
             'pro_sizeL' => 'required',

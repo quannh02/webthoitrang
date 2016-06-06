@@ -40,7 +40,7 @@
       <form class="navbar-form navbar-left col-lg-12 col-md-12 col-sm-12 col-xs-6" action="{{ url('timkiem') }}" method="GET" id="search-form" style="min-width: 65%; margin-left: 15%;">
         <div class="input-group col-lg-12 col-md-12 col-sm-10 col-xs-10">
           <span class="ui-helper-hidden-accessible"></span>
-          <input type="text" name="q" class="search form-control" placeholder="Tìm kiếm... (sản phẩm, tin tức...)">
+          <input type="text" name="q" class="search form-control" placeholder="Tìm kiếm... (sản phẩm, mã sản phẩm...)">
           <div class="input-group-btn">
             <button class="btn btn-default" type="submit">Tìm kiếm</button>
           </div>
@@ -92,7 +92,9 @@
             <li class="">
               <a href="{{ url('allusers') }}">Quản lý thành viên</a>
             </li>
-            
+            <li class="">
+              <a href="{{ url('quanlydonhang') }}">Quản lý đơn hàng</a>
+            </li>
           </ul>
         </div>
 

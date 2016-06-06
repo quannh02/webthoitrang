@@ -23,7 +23,6 @@
                                 <div class="col-md-8">
                                 <p>{{ $cate->c_name }}</p>
                                 <select class="form-control" name="sltParent">
-                                    <option value="">Chọn danh mục</option>
                                     @foreach($category as $cate)
                                     <option value="{{ $cate->c_id }}">{{ $cate->c_name }}</option>
                                     @endforeach
@@ -66,21 +65,21 @@
                             <div class="row">
                                 <div class="col-md-2">Cỡ S</div>
                                 <div class="form-group col-md-3">
-                                   <input type="number" class="form-control" name="sizes" value="{{ $product->pro_sizeS }}" placeholder="Nhập số lượng">
+                                   <input type="number" class="form-control" name="pro_sizeS" value="{{ $product->pro_sizeS }}" placeholder="Nhập số lượng">
                                 </div>
                                
                             </div>
                             <div class="row">
                                 <div class="col-md-2">Cỡ M</div>
                                 <div class="form-group col-md-3">
-                                   <input type="number" class="form-control" name="sizem" value="{{ $product->pro_sizeM }}" placeholder="Nhập số lượng">
+                                   <input type="number" class="form-control" name="pro_sizeM" value="{{ $product->pro_sizeM }}" placeholder="Nhập số lượng">
                                 </div>
                                
                             </div>
                             <div class="row">
                                 <div class="col-md-2">Cỡ L</div>
                                 <div class="form-group col-md-3">
-                                   <input type="number" class="form-control" name="sizel" value="{{ $product->pro_sizeL }}" placeholder="Nhập số lượng">
+                                   <input type="number" class="form-control" name="pro_sizeL" value="{{ $product->pro_sizeL }}" placeholder="Nhập số lượng">
                                 </div>
                                
                             </div>

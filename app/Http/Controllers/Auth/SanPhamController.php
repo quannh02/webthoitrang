@@ -53,17 +53,34 @@ class SanPhamController extends Controller
         return redirect()->route('quanlysanpham');
     }
     public function suasanpham($id){
-        $product = Product::where('pro_id', $id)->get()->first();
-        return view('backend.product.sua', compact('product'));
+
+        $product = Product::where('pro_id', $id)->first();
+        $cate = Category::where('c_id', $product->c_id)->first();
+        $category = Category::all();
+        return view('backend.product.sua', compact('product', 'cate', 'category'));
     }
 
     public function postsuasanpham(SanPhamRequest $request, $id){
         $product = Product::findOrFail($id);
+        $product->c_id = $request->sltParent;
         $product->pro_name = $request->pro_name;
         $product->pro_price = $request->pro_price;
-        $product->pro_size = $request->pro_size;
         $product->pro_color = $request->pro_color;
-        $product->pro_number = $request->pro_number;
+        $product->pro_code = $request->pro_code;
+        $product->pro_sizeM = $request->pro_sizeM;
+        $product->pro_sizeS = $request->pro_sizeS;
+        $product->pro_sizeL = $request->pro_sizeL;
+        if ($request->hasFile('pro_images')) {
+        $file = $request->file('pro_images');
+        $destinationPath = base_path(). "/public/frontend/images/";
+        $product->pro_images = $file->getClientOriginalName();
+        $fileName = $destinationPath . $product->pro_images;
+        //dd($file); die();
+        
+            if ($file->isValid()) {
+                $file->move($destinationPath, $fileName);
+            }   
+        }
         $product->save();
         return redirect()->route('quanlysanpham');
     }

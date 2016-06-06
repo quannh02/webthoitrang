@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2016 at 03:35 PM
+-- Generation Time: Jun 06, 2016 at 09:35 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -45,20 +45,6 @@ INSERT INTO `category` (`c_id`, `c_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
---
-
-CREATE TABLE `comment` (
-  `com_id` int(11) NOT NULL,
-  `pro_id` int(255) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `com_detail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `com_ create` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `customers`
 --
 
@@ -78,7 +64,10 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`cus_id`, `name`, `email`, `sodienthoai`, `address`, `created_at`, `updated_at`) VALUES
 (7, 'Nguyên X', 'nguyenx@gmail.com', '0909909009', 'Phan Đình Phùng, Hà Tĩnh', '2016-06-05 09:42:39', '2016-06-05 09:42:39'),
-(8, 'Bui nguyen ba', 'a@gmail.com', '01675467069', '1', '2016-06-05 11:42:03', '2016-06-05 11:42:03');
+(8, 'Bui nguyen ba', 'a@gmail.com', '01675467069', '1', '2016-06-05 11:42:03', '2016-06-05 11:42:03'),
+(9, 'Bùi Nguyên Ba', 'buinguyenba@gmail.com', '0971315978', 'Ngõ 10, Tôn Thất Tùng, Đống Đa, Hà Nội', '2016-06-06 10:07:00', '2016-06-06 10:07:00'),
+(10, '1', 'abc@gmail.com', '11111111111', '1', '2016-06-06 10:08:42', '2016-06-06 10:08:42'),
+(11, 'Bui nguyen ba', 'ba@mail.com', '01675467069', '123 nghệ an', '2016-06-06 10:26:05', '2016-06-06 10:26:05');
 
 -- --------------------------------------------------------
 
@@ -107,7 +96,10 @@ INSERT INTO `detailoder` (`det_id`, `order_id`, `pro_id`, `det_size`, `created_a
 (5, 5, 11, 's', '2016-06-05 09:42:40', '2016-06-05 09:42:40', 2, 199000),
 (6, 6, 9, 'm', '2016-06-05 11:42:03', '2016-06-05 11:42:03', 1, 215000),
 (7, 6, 21, 's', '2016-06-05 11:42:03', '2016-06-05 11:42:03', 1, 115000),
-(8, 6, 11, 's', '2016-06-05 11:42:03', '2016-06-05 11:42:03', 2, 199000);
+(8, 6, 11, 's', '2016-06-05 11:42:03', '2016-06-05 11:42:03', 2, 199000),
+(9, 7, 9, 'm', '2016-06-06 10:07:01', '2016-06-06 10:07:01', 1, 215000),
+(10, 8, 9, 'm', '2016-06-06 10:08:42', '2016-06-06 10:08:42', 1, 215000),
+(11, 9, 10, 's', '2016-06-06 10:26:05', '2016-06-06 10:26:05', 1, 215000);
 
 -- --------------------------------------------------------
 
@@ -161,7 +153,10 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`ord_id`, `customer_id`, `ord_name`, `ord_phone`, `ord_address`, `ord_timeoder`, `ord_condition`, `ord_enddate`, `ord_total`, `ord_note`, `created_at`, `updated_at`) VALUES
 (5, 7, 'Phạm Văn Duc', 999999999, '175 Tây Sơn', '2016-06-05 16:42:40', 0, '0000-00-00 00:00:00', 0, '', '2016-06-05 09:42:40', '2016-06-05 09:42:40'),
-(6, 8, 'bui nguyên ba', 999999999, '1', '2016-06-05 18:42:03', 0, '0000-00-00 00:00:00', 0, '', '2016-06-05 11:42:03', '2016-06-05 11:42:03');
+(6, 8, 'bui nguyên ba', 999999999, '1', '2016-06-05 18:42:03', 0, '0000-00-00 00:00:00', 0, '', '2016-06-05 11:42:03', '2016-06-05 11:42:03'),
+(7, 9, '1', 2147483647, '1', '2016-06-06 17:07:00', 0, '0000-00-00 00:00:00', 0, '', '2016-06-06 10:07:00', '2016-06-06 10:07:00'),
+(8, 10, '1', 2147483647, '1', '2016-06-06 17:08:42', 0, '0000-00-00 00:00:00', 0, '', '2016-06-06 10:08:42', '2016-06-06 10:08:42'),
+(9, 11, 'bui nguyên ba', 1675467069, '123 nghệ an', '2016-06-06 17:26:05', 0, '0000-00-00 00:00:00', 0, '', '2016-06-06 10:26:05', '2016-06-06 10:26:05');
 
 -- --------------------------------------------------------
 
@@ -190,7 +185,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`pro_id`, `c_id`, `p_id`, `pro_name`, `pro_images`, `pro_code`, `pro_price`, `pro_color`, `pro_sizeM`, `pro_sizeL`, `pro_sizeS`, `created_at`, `updated_at`) VALUES
-(2, 1, 0, 'Áo sơ mi nam tay dài thời trang', 'somi2.jpg', 'SM2', 185000, 'xanh lam', 1, 1, 2, '2016-05-11 08:40:25', '0000-00-00 00:00:00'),
+(2, 1, 0, 'Áo sơ mi nam tay dài thời trang', 'somi4.jpg', 'SM2', 185000, 'xanh lam1', 1, 1, 2, '2016-06-06 19:34:01', '0000-00-00 00:00:00'),
 (3, 1, 0, 'Áo sơ mi tay ngắn họa tiết cá tính', 'somi3.jpg', 'SM3', 189000, 'đen', 1, 0, 1, '2016-05-11 08:39:53', '0000-00-00 00:00:00'),
 (4, 1, 0, 'Áo sơ mi nam tay ngắn sọc nhỏ thời trang', 'somi4.jpg', 'SM4', 189000, 'Xanh nhạt', 0, 1, 1, '2016-05-11 08:39:53', '0000-00-00 00:00:00'),
 (5, 1, 0, 'Áo sơ mi tay ngắn họa tiết cá tính', 'somi5.jpg', 'SM5', 189000, 'xám', 0, 3, 1, '2016-05-11 08:45:03', '2016-05-24 17:00:00'),
@@ -266,7 +261,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `fullname`, `address`, `email`, `sodienthoai`, `active`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Bùi Nguyên Ba', '$2y$10$UYLs4FHleKfp/tLIyxfmJepexVjkHNqrUQsH8Ssj61yjmaqWKfDv6', '', 'Ngõ 10, Tôn Thất Tùng, Đống Đa, Hà Nội', 'buinguyenba@gmail.com', '0971315978', 1, 'admin', 'PtcANFsYbMtnzIBFrQInVNgOiEbMqD8cT4SvxIHiRjen3YlM8N9tZDphBNYl', '2016-06-05 15:07:18', '2016-06-05 08:07:18'),
+(3, 'Bùi Nguyên Ba', '$2y$10$UYLs4FHleKfp/tLIyxfmJepexVjkHNqrUQsH8Ssj61yjmaqWKfDv6', '', 'Ngõ 10, Tôn Thất Tùng, Đống Đa, Hà Nội', 'buinguyenba@gmail.com', '0971315978', 1, 'admin', 'G2MZwKz5Ozke3V2dSwNBAEif5vch6GYSTHSkWk06upyZuVzQP9qxvRm5rGKj', '2016-06-06 18:43:33', '2016-06-06 11:43:33'),
 (4, 'Lại Thị Nhạn', '$2y$10$K.l0pR8huKN5s9.vxbEGM.AQY4oQD4UEb4b6jzGYyo1yi9ALDXMnS', '', '', 'laithinhan@gmail.com', '', 1, 'nhanvien', '3VkyoCEk5ZWKPOiIwVevJp4NZaO8z4FwKvavpOoiT0NnLYyEeKS15JkLAGif', '2016-05-11 04:39:05', '2016-05-10 21:39:05'),
 (5, 'Phạm Văn Đức', '$2y$10$X9ugUNu2pF5QMj7bMIqgXOHYLgv911Ik/ODEMc.euUEUetJxMPgwu', '', '', 'phamvanduc@gmail.com', '', 1, 'nhanvien', 'KZYQSS7QNWKc4t1C5mznx5TUmrhh4XAEjfy6MhX4VhNck7OC4WFX9s01eo6U', '2016-06-03 16:52:43', '2016-06-03 09:52:43'),
 (6, 'Nguyên X', '$2y$10$zC6DJI5KGfTb8ETKRp6rGup.jbK4PQ12q1oXpu0veH5WALHjGU/ri', '', 'Phan Đình Phùng, Hà Tĩnh', 'nguyenx@gmail.com', '0909909009', 1, 'member', '4YoefOKrPQobwDZdCSW3J3oGwZ7TwARqVcvgDae0huHK9IpswRDtJetRuPgr', '2016-06-05 15:44:14', '2016-06-05 08:44:14'),
@@ -282,12 +277,6 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `fullname`, `address`, `
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`c_id`);
-
---
--- Indexes for table `comment`
---
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`com_id`);
 
 --
 -- Indexes for table `customers`
@@ -339,22 +328,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `comment`
---
-ALTER TABLE `comment`
-  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `detailoder`
 --
 ALTER TABLE `detailoder`
-  MODIFY `det_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `det_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `news`
 --
@@ -364,12 +348,12 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `promotion`
 --

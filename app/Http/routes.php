@@ -56,9 +56,9 @@ Route::group(['namespace' => 'Auth'], function(){
 	
 	Route::group(['middleware' => 'nhanvien'], function(){
 		Route::get('allusers', 'UserController@allUsers');
-		Route::get('suanguoidung/{id}','TinTucController@suanguoidung');
-		Route::post('suanguoidung/{id}', 'TinTucController@suapassnguoidung');
-		Route::get('deletenguoidung/{id}', 'TinTucController@deletenguoidung');
+		Route::get('suanguoidung/{id}','UserController@suanguoidung');
+		Route::post('suanguoidung/{id}', 'UserController@suapassnguoidung');
+		Route::get('deletenguoidung/{id}', 'UserController@deletenguoidung');
 
 		Route::get('quanlysanpham', ['as' => 'quanlysanpham' , 'uses' => 'SanPhamController@index']);
 		Route::get('themsanpham', 'SanPhamController@viewthemsanpham');
@@ -66,6 +66,9 @@ Route::group(['namespace' => 'Auth'], function(){
 		Route::get('suasanpham/{id}', 'SanPhamController@suasanpham');
 		Route::post('suasanpham/{id}', 'SanPhamController@postsuasanpham');
 		Route::get('xoasanpham/{id}', 'SanPhamController@deletesanpham');
+
+		Route::get('quanlydonhang', 'DonHangController@quanlydonhang');
+		Route::get('xoadonhang/{id}','DonHangController@xoadonhang');
 
 		Route::get('quanlydanhmuc', 'DanhMucController@quanlydanhmuc');
 		Route::get('suadanhmuc/{id}', 'DanhMucController@suadanhmuc');

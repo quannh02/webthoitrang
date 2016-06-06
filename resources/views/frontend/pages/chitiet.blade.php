@@ -59,6 +59,24 @@
                             </form>
 				</div>
 	</div>
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1115738578446863',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="fb-comments" data-href="{{url('chitiet')}}" data-colorscheme="light" data-numposts="100" data-width="500"></div>
 	<div class="w3-row-padding">
   	<div class="w3-col s12 w3-green w3-center"><p>Sản phẩm cùng loại</p></div>
   	<div class="w3-col s12 w3-white w3-center">
