@@ -63,7 +63,7 @@
                                     {{ $ao->pro_price }}
                                 </span>
                             
-                            <a href="{{ url('chitiet', $ao->pro_id )}}" class="btn btn-default add-to-cart">Chi tiết</a>
+                            <a href="{{ url('chitiet', $ao->pro_id )}}" class="btn btn-default add-to-cart">chi tiết</a>
                         </a>
                     </div>
                     @endforeach

@@ -39,11 +39,8 @@
 	                </form>
 	            </div>
 	            <div class="header-phone">
-	               
-
-
 	                <p class="phone">
-	                <strong>Liên hệ:</strong>
+	                <strong>Hãy Gọi:</strong>
 	                    0971315978
 	                </p>
 	            </div>

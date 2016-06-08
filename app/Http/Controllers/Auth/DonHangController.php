@@ -8,17 +8,27 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Category;
 use App\Order;
+use App\DetailOrder;
+use App\Customer;
 class DonHangController extends Controller
 {
     
     public function quanlydonhang(){
-        $alldonhang = Order::paginate(5);
+        $alldonhang = Order::paginate(10);
         return view('backend.donhang.donhang', compact('alldonhang'));
     }
     
-    public function xoadonhang($id){
-        Category::where('ord_id', $id)->delete();
+    public function xoadonhang($id,$cus_id){
+        Order::where('ord_id', $id)->delete();
+        DetailOrder::where('order_id', $id)->delete();
+        Customer::where('cus_id', $cus_id)->delete();
+
         return redirect('quanlydonhang')->with('message', 'Bạn đã xóa thành công');
+    }
+    public function chitietdonhang($id){
+        $alldonhang = Order::paginate(10);
+        $chitiet = DetailOrder::where('order_id',$id)->get();
+        return view('backend.donhang.chitietdonhang', compact('alldonhang','chitiet'));
     }
     /**
      * Store a newly created resource in storage.

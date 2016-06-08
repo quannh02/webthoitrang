@@ -68,14 +68,16 @@ Route::group(['namespace' => 'Auth'], function(){
 		Route::get('xoasanpham/{id}', 'SanPhamController@deletesanpham');
 
 		Route::get('quanlydonhang', 'DonHangController@quanlydonhang');
-		Route::get('xoadonhang/{id}','DonHangController@xoadonhang');
+		Route::get('xoadonhang/{id}/{cus_id}','DonHangController@xoadonhang');
+		Route::get('chitietdonhang/{id}', 'DonHangController@chitietdonhang');
+
 
 		Route::get('quanlydanhmuc', 'DanhMucController@quanlydanhmuc');
 		Route::get('suadanhmuc/{id}', 'DanhMucController@suadanhmuc');
 		Route::post('suadanhmuc/{id}', 'DanhMucController@postsuadanhmuc');
 		Route::get('themdanhmuc', 'DanhMucController@themdanhmuc');
 		Route::post('themdanhmuc', 'DanhMucController@postthemdanhmuc');
-		Route::get('xoadanhmuc/{id}', 'DanhMucController@xoasanpham');
+		Route::get('xoadanhmuc/{id}', 'DanhMucController@xoadanhmuc');
 
 		Route::get('timkiem', 'SanPhamController@timkiem');
 		Route::get('dathang', 'SanPhamController@datHang');

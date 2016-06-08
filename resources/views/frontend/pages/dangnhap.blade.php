@@ -4,6 +4,7 @@
     <h4>Trang đăng nhập</h4>
      <form method="post" action="{{ url('dangnhap') }}">
      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class = 'col-md-9'>
         <fieldset>
         <div class="form-group">Email
             <input type="email"  class="form-control" name="email" value="{{ old('email') }}">
@@ -13,8 +14,11 @@
         </div>
         <div>
             <button type="submit">Đăng nhập</button>
+            <br>
+            <br>
         </div>
         </fieldset>
+        </div>
         </form>
         </div>
 @endsection

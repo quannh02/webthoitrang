@@ -305,7 +305,7 @@ hr {
 }
 #pheader .header-phone {
     float: left;
-    width: 130px;
+    width: 50px;
     color: #aa1515;
     font-size: 18px;
     font-weight: bold;
@@ -909,7 +909,6 @@ hr {
 .cate-vertical .wap .cate-header .title span {
     display: block;
     background: #00a200 url(../../ThemeV6/images/cate_vert_down_arrow.png) no-repeat right center;
-    padding-right: 25px;
     color: #fff;
     font-size: 14px;
     font-weight: bold
@@ -3848,4 +3847,7 @@ td .imagecart{
 }
 .logo a{
     background: url('../images/bashoplogo.png') no-repeat;
+}
+.btn-default{
+    background-color: #27E838 !important;
 }

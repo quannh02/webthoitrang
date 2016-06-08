@@ -38,7 +38,7 @@ class DanhMucController extends Controller
         return redirect('quanlydanhmuc')->with('message', 'Bạn đã thêm thành công');
     }
 
-    public function xoasanpham($id){
+    public function xoadanhmuc($id){
         Category::where('c_id', $id)->delete();
         return redirect('quanlydanhmuc')->with('message', 'Bạn đã xóa thành công');
     }

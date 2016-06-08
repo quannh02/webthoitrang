@@ -178,7 +178,7 @@ class HomeController extends Controller
             return redirect()->route('giohang');
     }
     public function xoahetgiohang(){
-        Session::flush('giohang');
+        Session::forget('giohang');
         return redirect()->route('giohang');
     }
 
@@ -215,6 +215,7 @@ class HomeController extends Controller
             ]);
             $order->detailorder()->save($orderdetail);
         }
+        Session::forget('giohang');
         return redirect()->route('trangchu')->with('message', 'Bạn đã đặt hàng thành công, chúng tôi sẽ liên hệ với bạn vào thời gian sớm nhất');
         }
         return redirect('gio-hang')->with('message', 'Bạn chưa có giỏ hàng nào');

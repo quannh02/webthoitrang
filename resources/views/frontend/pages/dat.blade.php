@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-4">
 			<p>Mua hàng không cần đăng ký</p>
 			<form method="post" action="{{ url('dat-hang') }}">
         	<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -57,7 +57,9 @@
         </fieldset>
         </form>
 		</div>
-		<div class="col-md-7">
+        <div class="col-md-1">
+        </div>
+		<div class="col-md-3">
 			<p>Bạn đã có tài khoản trên hệ thống</p></br>
 			<p>Để tiếp tục, vui lòng nhập địa chỉ email và mật khẩu mà bạn sử dụng cho tài khoản của bạn.</p>
 			<form method="post" action="{{ url('dangnhap') }}">

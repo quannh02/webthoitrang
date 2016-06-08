@@ -18,18 +18,15 @@
 					
 					 <div class="comment more">
 					 <p>
-						 <span>Trẻ trung và thanh lịch với áo sơ mi màu trắng của thương hiệu Inner Circle. Áo in họa tiết chấm bi đen đem đến cho bạn sự nổi bật và cá tính</span><br><br>
-						 <span>- Chất liệu cotton pha</span><br>
-						 <span>- Cổ lật</span><br>
-						 <span>- Tay ngắn</span><br>
-						 <span>- Hàng nút cài dọc thân áo trước</span><br>
-						 <span>- May túi đắp bên ngực trái</span><br>
-						 <span>- Vạt ngang</span><br><span>- Không có lót trong</span>
+						 <span>Trẻ trung và thanh lịch của thương hiệu Blue Exchange. Đem đến cho bạn sự năng động và trẻ trung</span><br><br>
+						 <span>- Chất liệu kate</span><br>
+						 <span>- Mẫu y như hình</span><br>
+						 <span>- Thiết kế form chuẩn, thích hợp với nhiều vóc dáng.</span><br>
 					 </p>			
 					 </div>
 					
 					<div class="thoigian">SẼ CÓ TẠI NHÀ BẠN<br>
-						<i style="color:gray">trong 1 - 2 ngày làm việc</i></div>
+						<i style="color:gray">trong 1 - 2 ngày giao hàng</i></div>
 					<div class="mausac"></div>
 				</div>
 				
