@@ -49,7 +49,7 @@
 	    <div class="accountInner">
 	    
 	        <div class="dropdown">
-	           	<a href="">Đăng nhập</a>
+	           	Đăng nhập
 	            <ul class="dropdown-menu">
 	                <li><a href="{{ url('dangnhap') }}">Đăng nhập</a></li>
 	                <li><a href="{{ url('dangky') }}">Đăng kí</a></li>

@@ -1,8 +1,5 @@
 	@extends('backend.master')
 @section('content')
-<div class="buttonThem">
-	<a href="{{ url('themsanpham') }}" class="btn btn-info" role="button">Thêm sản phẩm</a></div>
-<div class="table-responsive">          
   		<table class="table">
     	<thead>
 	      <tr>
@@ -12,7 +9,7 @@
 	        <th>Số điện thoại</th>
 	        <th>Địa chỉ</th>
 	        <th>Chi tiết</th>
-	        <th>Sửa/Xóa</th>
+	        <th>Xóa</th>
 	      </tr>
 	    </thead>
 	    <tbody>

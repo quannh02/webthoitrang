@@ -3,9 +3,6 @@
 
 		<section id="cart_items">
 		<div class="container">
-		@if(Session::has('message'))
-			<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-		@endif
 		<div class="table-responsive cart_info">
 		@if(is_array(Session::get('giohang')))
 		<table class="table table-condensed">
@@ -61,19 +58,29 @@
 		</tr>
 		@endforeach
 		@else
-		<p>Bạn không có sản phẩm trong giỏ hàng</p>
+			@if(Session::has('message'))
+	            <div class="alert alert-{{ Session::get('flash_level')}}">{{ Session::get('message') }}</div>
+	        @endif
 		@endif
 		</tbody>
+
 		</table>
 		</div>
-		<div class="col-sm-6">
+		<div class="col-md-6">
 		<div class="total_area">
 		<ul>
 		<li>Vận chuyển <span>Miễn phí</span></li>
 		<li>Tổng tiền: <span>{{ number_format($tongtien,0) }} VNĐ</span></li>
 		</ul>
-		<a href="{{ url('dat-hang') }}" class="btn btn-success">Thanh toán</a>
+
+		<a href="{{ url('dat-hang') }}" class="btn btn-success">Đặt Hàng</a>
 		</div>
+		</div>
+		<div class="col-md-6">
+			<div class="pull-right">
+			
+			<a type="submit" href="{{ url('xoahetgiohang')}}" class="cart_quantity_delete btn btn-success">Hủy giỏ hàng</a>
+			</div>
 		</div>
 		</div>
 		

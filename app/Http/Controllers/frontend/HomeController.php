@@ -44,16 +44,16 @@ class HomeController extends Controller
         if(Session::has('giohang')){
             
             foreach(Session::get('giohang') as $key => $value){
-                $tongtien += $value['quantity'] * $value['price']; 
+                $tongtien +=  $value['quantity'] * $value['price']; 
             }
         }
         return $tongtien;
     }
     public function giohang(){
+        //dd(Session::get('giohang'));
         $cates = Category::all();
         $tongtien = $this->tongtien();
          return view('frontend.pages.cart', compact('cates',  'tongtien'));
-
     }
     
     public function themvaogio($id, GioHangRequest $request){
@@ -63,7 +63,7 @@ class HomeController extends Controller
             if(Session::has('giohang')) {
                 foreach(Session::get('giohang') as $key => $value){
                     //dd($key); die();
-                    if(($id == Session::get('giohang')[$key]['id']) && ($size == Session::get('giohang')[$key]['size'])) {
+                    if(($id == $value['id']) && ($size == $value['size'])) {
                         $index = $key;
                         break;
                     }
@@ -150,6 +150,9 @@ class HomeController extends Controller
                     }
                 }
                 $quantity = Session::get('giohang')[$index]['quantity'];
+                if($quantity === 1){
+                    Session::forget('giohang.'. $index);
+                } else {
                 $item = array(
                         'id' => $id,
                         'name' => $product->pro_name,
@@ -160,6 +163,7 @@ class HomeController extends Controller
                         );
                     Session::push('giohang', $item);
                     Session::forget('giohang.' . $index);
+                }
                     //dd(Session::get('giohang')[$index]['quantity']++);
                     //echo 'a';
                     //dd(Session::get('giohang')[$index]); die();
@@ -183,8 +187,12 @@ class HomeController extends Controller
     }
 
     public function datHang(){
+        if(Session::has('giohang')){
          $cates = Category::all();
         return view('frontend.pages.dat', compact('cates'));
+        } else {
+            return redirect('gio-hang')->with('message', 'Bạn chưa có giỏ hàng nào để thanh toán');
+        }
     }
 
     public function datHangDn(){
@@ -193,7 +201,6 @@ class HomeController extends Controller
         return view('backend.order.order', compact('user', 'tongtien'));
     }
     public function postdatHang(DatHangRequest $request){
-        if(Session::has('giohang')){
         $customer = Customer::create([
             'name' => $request->namenguoigui,
             'email' => $request->emailnguoigui,
@@ -217,8 +224,6 @@ class HomeController extends Controller
         }
         Session::forget('giohang');
         return redirect()->route('trangchu')->with('message', 'Bạn đã đặt hàng thành công, chúng tôi sẽ liên hệ với bạn vào thời gian sớm nhất');
-        }
-        return redirect('gio-hang')->with('message', 'Bạn chưa có giỏ hàng nào');
     }
 
     public function datthanhcong(){
@@ -229,7 +234,7 @@ class HomeController extends Controller
     public function timkiem(){
         $cates = Category::all();
         $q = Input::get('q');
-        $products = Product::where('pro_name', 'LIKE', '%'.$q.'%')->orWhere('pro_code', 'LIKE', '%'.$q. '%')->get();
+        $products = Product::where('pro_name', '=', trim($q))->orWhere('pro_code', '=',  trim($q))->get();
         return view('frontend.pages.timkiem', compact('products', 'cates'));
     }
     public function tintuc()

@@ -51,9 +51,15 @@
 		  	</div>
 	        <td>{{ $product->pro_price }}</td>
 	        <td>{{ $product->pro_color }}</td>
-	        <td>{{ $product->pro_sizeS }}</td>
-	        <td>{{ $product->pro_sizeM }}</td>
-	        <td>{{ $product->pro_sizeL }}</td>
+	        <td>{{$product->pro_sizeS>0 ? $product->pro_sizeS.' Cái' : '' }}
+	        </td>
+	        <td>
+	        @if($product->pro_sizeM >0)
+	        	{{$product->pro_sizeM }} Cái
+	        @else
+			@endif
+	         </td>
+	        <td>{{ $product->pro_sizeL }} Cái</td>
 	        <td class=" ">
               <center>
                 <a style="float:left" href="{{ url('suasanpham', $product->pro_id )}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>

@@ -7,9 +7,9 @@
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <fieldset>
         <h2>Người đặt</h2>
-         @if ($errors->has('namenguoigui'))
+        @if ($errors->has('namenguoigui'))
         <span class="error">{{ $errors->first('namenguoigui') }}</span>
-    @endif
+        @endif
         <div class="form-group">Họ và tên đệm của bạn (*)
             <input type="text" class="form-control" name="namenguoigui" value="{{ old('name') }}"> 
         </div>
@@ -21,32 +21,32 @@
         </div>
         @if ($errors->has('sdtnguoigui'))
         <span class="error">{{ $errors->first('sdtnguoigui') }}</span>
-    @endif
+        @endif
         <div class="form-group">Số điện thoại (*)
             <input type="text"  class="form-control" name="sdtnguoigui">
         </div>
         @if ($errors->has('addressnguoigui'))
         <span class="error">{{ $errors->first('addressnguoigui') }}</span>
-    @endif
+        @endif
         <div class="form-group">Địa chỉ (*)
              <textarea rows="4" cols="40" id="message" name="addressnguoigui"></textarea>
         </div>
         <h2>Người nhận</h2>
         @if ($errors->has('namenguoinhan'))
         <span class="error">{{ $errors->first('namenguoinhan') }}</span>
-    @endif
+        @endif
         <div class="form-group">Họ và tên đệm của bạn (*)
             <input type="text" class="form-control" name="namenguoinhan" value="{{ old('name') }}"> 
         </div>
         @if ($errors->has('sdtnguoinhan'))
         <span class="error">{{ $errors->first('sdtnguoinhan') }}</span>
-    @endif
+        @endif
         <div class="form-group">Số điện thoại (*)
             <input type="text"  class="form-control" name="sdtnguoinhan">
         </div>
         @if ($errors->has('addressnguoinhan'))
         <span class="error">{{ $errors->first('addressnguoinhan') }}</span>
-    @endif
+        @endif
         <div class="form-group">Địa chỉ (*)
              <textarea rows="4" cols="40" id="message" name="addressnguoinhan"></textarea>
         </div>
