@@ -64,10 +64,10 @@ class SanPhamController extends Controller
 
     public function postsuasanpham(SanPhamRequest $request, $id){
         $product = Product::findOrFail($id);
-        dd($product); die();
+        //dd($product); die();
         $product->c_id = $request->sltParent;
         $product->pro_name = $request->pro_name;
-        dd($product->pro_name);
+        //dd($product->pro_name);
         $product->pro_price = $request->pro_price;
         $product->pro_color = $request->pro_color;
         $product->pro_code = $request->pro_code;
