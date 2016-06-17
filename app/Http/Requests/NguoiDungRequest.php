@@ -25,10 +25,15 @@ class NguoiDungRequest extends Request
     {
         return [
             'username' => 'required',
-            'address' => 'required',
             'role' => 'required',
             'email' => 'required'
         ];
     }
-    
+    public function messages(){
+        return [
+            'username.required' => 'Bạn vui lòng nhập tên người dùng',
+            'role.required' => 'Bạn vui lòng nhập đối tượng người dùng',
+            'email.required' => 'Bạn vui lòng nhập email người dùng'
+        ];
+    }
 }
