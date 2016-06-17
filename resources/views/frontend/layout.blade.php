@@ -45,9 +45,15 @@
 	                </p>
 	            </div>
 	            <div class="account">
-	                
+	     @if(Auth::check())
+	     <div class="accountInner">
+	     	<div class="dropdown">
+	     		<a href="{{ url('trangquanly')}}">{{ Auth::user()->username }}</a>
+	     	</div>
+	     </div>
+	     @else       
 	    <div class="accountInner">
-	    
+	      
 	        <div class="dropdown">
 	           	Đăng nhập
 	            <ul class="dropdown-menu">
@@ -55,7 +61,10 @@
 	                <li><a href="{{ url('dangky') }}">Đăng kí</a></li>
 	            </ul>
 	        </div>
-	        
+	      </div>
+	     @endif  
+	     <div class="accountInner">
+
 	        <p class="shoppingCart">
 	            <a href="{!! url('gio-hang') !!}">
 	            	<span class="icon-shopping"></span>

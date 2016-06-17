@@ -51,10 +51,9 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->username = $request->name;
         $user->role = 'member';
-        $user->active = '1';
         $user->remember_token = Input::get('_token');
         $user->save();
-        return redirect()->route('dangnhap');
+        return redirect()->route('dangnhap')->with('message', 'Bạn đã đăng ký thành công mời bạn đăng nhập.');
     }
     public function getLogin(){
         $cates  = Category::all();

@@ -187,11 +187,15 @@ class HomeController extends Controller
     }
 
     public function datHang(){
-        if(Session::has('giohang')){
-         $cates = Category::all();
-        return view('frontend.pages.dat', compact('cates'));
+        if(Auth::check()){
+            return redirect('dat-hang2');
         } else {
-            return redirect('gio-hang')->with('message', 'Bạn chưa có giỏ hàng nào để thanh toán');
+            if(Session::has('giohang')){
+             $cates = Category::all();
+            return view('frontend.pages.dat', compact('cates'));
+            } else {
+                return redirect('gio-hang')->with('message', 'Bạn chưa có giỏ hàng nào để thanh toán');
+            }
         }
     }
 
@@ -235,6 +239,7 @@ class HomeController extends Controller
         $cates = Category::all();
         $q = Input::get('q');
         $products = Product::where('pro_name', '=', trim($q))->orWhere('pro_code', '=',  trim($q))->get();
+        
         return view('frontend.pages.timkiem', compact('products', 'cates'));
     }
     public function tintuc()

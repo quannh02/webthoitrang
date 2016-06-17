@@ -2,11 +2,14 @@
 @section('content')
  <div class="col-sm-offset-3 col-md-offset-3 col-md-5 col-sm-5 col-xs-12">
     <h4>Trang đăng nhập</h4>
+        @if(Session::has('message'))
+            <p>{{ Session::get('message')}}</p>
+        @endif
      <form method="post" action="{{ url('dangnhap') }}">
      {{csrf_field()}}
      <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class = 'col-md-9'>
-
+        
          @if($errors->has('email'))
          <span class="error">{{ $errors->first('email') }}</span>
          @endif

@@ -331,7 +331,8 @@ hr {
     border: 1px solid #e6eae6;
     border-radius: 4px;
     height: 35px;
-    position: relative
+    position: relative;
+    float: left;
 }
 #pheader .account .accountInner a {
     color: #333

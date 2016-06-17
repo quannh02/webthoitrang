@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::group(['namespace' => 'frontend'], function(){
 	Route::group(['middleware' => 'auth'], function(){
 		Route::get('dat-hang2', ['as' => 'dathang', 'uses' => 'HomeController@datHangDn']);
+	
 	});
 
 	Route::get('tim-kiem', 'HomeController@timkiem');
@@ -35,9 +36,6 @@ Route::group(['namespace' => 'frontend'], function(){
  	Route::get(	'dat-hang', 				'HomeController@datHang');
  	Route::post('dat-hang', 				'HomeController@postdatHang');
  	Route::get(	'datthanhcong', 			['as'=> 'datthanhcong' , 'uses' => 'HomeController@datthanhcong']);
- 	// route lien he
- 	Route::get(	'lien-he', 	['as' => 'getLienhe', 	'uses'=> 'HomeController@getlienhe']);
- 	Route::post('lien-he', 	['as' => 'postLienhe', 	'uses'=> 'HomeController@postlienhe']);
 });
 Route::group(['namespace' => 'Auth'], function(){
 	// dang ky dang nhap
@@ -56,9 +54,9 @@ Route::group(['namespace' => 'Auth'], function(){
 	});
 	
 	Route::group(['middleware' => 'nhanvien'], function(){
-		Route::get('allusers', 'UserController@allUsers');
+		Route::get(	'allusers', 	['as' => 'allusers' , 	'uses' => 'UserController@allUsers']);
 		Route::get(' suanguoidung/{id}','UserController@suanguoidung');
-		//Route::post('suanguoidung/{id}', 'UserController@suapassnguoidung');
+		Route::post('suanguoidung/{id}', 'UserController@postsuanguoidung');
 		Route::get('deletenguoidung/{id}', 'UserController@deletenguoidung');
 
 		Route::get('quanlysanpham', ['as' => 'quanlysanpham' , 'uses' => 'SanPhamController@index']);

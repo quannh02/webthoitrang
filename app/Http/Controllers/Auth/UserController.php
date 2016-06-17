@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\NguoiDungRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -44,14 +44,23 @@ class UserController extends Controller
     }
 
 
-    public function suapassnguoidung($id){
-        $tintuc = User::find($id);
-        $tintuc->password = Hash::make(Input::get('password'));
-        $tintuc->save();
-        return redirect('allusers');
+       public function postsuanguoidung(NguoiDungRequest $request, $id){
+        $user = User::findOrFail($id);
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->role = $request->role;
+        $user->save();
+        return redirect()->route('allusers')->with('message', 'Bạn đã sửa thành công');
     }
     
     public function deletetintuc($id)
+    {
+        $tintuc = User::where('user_id', $id)->get()->first();
+        User::where('user_id', $id)->delete();
+        return redirect('allusers')->with('message','Bạn đã xóa thành công');
+    }
+    public function deletenguoidung($id)
     {
         $tintuc = User::where('user_id', $id)->get()->first();
         User::where('user_id', $id)->delete();

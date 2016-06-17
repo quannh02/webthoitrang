@@ -9,27 +9,27 @@
                             <div class="row">
                               <div class="col-md-2">Tên người dùng</div>
                               <div class="form-group col-md-8">
-                                <input type="text" class="form-control" name="pro_name" value="{{ $user->username }}" placeholder="nhập tên người dùng">
+                                <input type="text" class="form-control" name="username" value="{{ $user->username }}" placeholder="nhập tên người dùng">
                               </div>
                             </div>
 
                             <div class="row">
                               <div class="col-md-2">Email người dùng</div>
                               <div class="form-group col-md-8">
-                                <input type="text" class="form-control" name="pro_code" value="{{ $user->email }}" placeholder="nhập email người dùng">
+                                <input type="text" class="form-control" name="email" value="{{ $user->email }}" placeholder="nhập email người dùng">
                               </div>
                             </div>
 
                             <div class="row">
                               <div class="col-md-2">Địa chỉ</div>
                               <div class="form-group col-md-8">
-                                <input type="text" class="form-control" name="pro_price" value="{{ $user->address}}" placeholder="nhập địa chỉ">
+                                <input type="text" class="form-control" name="address" value="{{ $user->address}}" placeholder="nhập địa chỉ">
                               </div>
                             </div>
                             <div class="row">
                               <div class="col-md-2">Role</div>
                               <div class="form-group col-md-8">
-                                <input type="text" class="form-control" name="pro_price" value="{{ $user->role}}" placeholder="nhập đối tượng">
+                                <input type="text" class="form-control" name="role" value="{{ $user->role}}" placeholder="nhập đối tượng">
                               </div>
                             </div>
                             </div>
