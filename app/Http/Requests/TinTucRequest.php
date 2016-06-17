@@ -25,7 +25,6 @@ class TinTucRequest extends Request
     {
         return [
             'new_name' => 'required',
-            'new_images' => 'required',
             'new_detail' => 'required',
         ];
     }
@@ -33,7 +32,6 @@ class TinTucRequest extends Request
     {
         return[
             'new_name.required' => 'Bạn vui lòng nhập tên tin tức',
-            'new_images.required' => 'Bạn vui lòng tải ảnh lên',
             'new_detail.required' => 'Bạn vui lòng nhập nội dung'
             ];
     }

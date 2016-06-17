@@ -51,7 +51,7 @@ class TinTucController extends Controller
     }
 
 
-    public function postsuatintuc($id){
+    public function postsuatintuc(TinTucRequest $request,$id){
         $tintuc = TinTuc::find($id);
         $tintuc->new_name = Input::get('new_name');
         if (Input::hasFile('new_images')) {

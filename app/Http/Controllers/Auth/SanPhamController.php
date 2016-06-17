@@ -21,7 +21,7 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        $allproducts = DB::table('product')->join('category', 'product.c_id', '=', 'category.c_id')->paginate(15);
+        $allproducts = DB::table('product')->join('category', 'product.c_id', '=', 'category.c_id')->orderBy('pro_id', 'desc')->paginate(15);
         return view('backend.product.list', compact('allproducts'));
     }
 
@@ -59,13 +59,15 @@ class SanPhamController extends Controller
         $product = Product::where('pro_id', $id)->first();
         $cate = Category::where('c_id', $product->c_id)->first();
         $category = Category::all();
-        return view('backend.product.sua', compact('product', 'cate', 'category'))->with('message', 'Bạn đã sửa thành công');
+        return view('backend.product.sua', compact('product', 'cate', 'category'));
     }
 
     public function postsuasanpham(SanPhamRequest $request, $id){
         $product = Product::findOrFail($id);
+        dd($product); die();
         $product->c_id = $request->sltParent;
         $product->pro_name = $request->pro_name;
+        dd($product->pro_name);
         $product->pro_price = $request->pro_price;
         $product->pro_color = $request->pro_color;
         $product->pro_code = $request->pro_code;
