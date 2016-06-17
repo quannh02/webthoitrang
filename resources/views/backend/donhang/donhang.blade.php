@@ -3,10 +3,10 @@
   		<table class="table">
     	<thead>
 	      <tr>
-	        <th>Ord_id</th>
-	        <th>Customer_id</th>
-	        <th>Tên Khách mua</th>
-	        <th>Số điện thoại</th>
+	        <th>Tên khách mua</th>
+	        <th>SDT người mua</th>
+	        <th>Tên Khách nhận</th>
+	        <th>SDT người nhận</th>
 	        <th>Địa chỉ</th>
 	        <th>Chi tiết</th>
 	        <th>Xóa</th>
@@ -15,8 +15,8 @@
 	    <tbody>
 	      @foreach($alldonhang as $donhang)
 	      <tr>
-	        <td>{{ $donhang->ord_id }}</td>
-	        <td>{{ $donhang->customer_id }}</td>
+	        <td>{{ $donhang->name }}</td>
+	        <td>{{ $donhang->sodienthoai }}</td>
 	        <td>{{ $donhang->ord_name }}</td>
 	        <td>{{ $donhang->ord_phone }}</td>
 	        <td>{{ $donhang->ord_address }}</td>

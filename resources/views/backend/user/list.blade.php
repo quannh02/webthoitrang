@@ -6,7 +6,6 @@
   		<table class="table">
     	<thead>
 	      <tr>
-	        <th>Id</th>
 	        <th>Tên</th>
 	        <th>Email</th>
 	        <th>Địa chỉ</th>
@@ -17,7 +16,6 @@
 	    <tbody>
 	      @foreach($allusers as $user)
 	      <tr>
-	        <td>{{ $user->user_id }}</td>
 	        <td>{{ $user->username }}</td>
 	        <td>{{ $user->email }}</td>
 	        <td>{{ $user->address }}</td>

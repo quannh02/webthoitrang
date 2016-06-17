@@ -57,8 +57,8 @@ Route::group(['namespace' => 'Auth'], function(){
 	
 	Route::group(['middleware' => 'nhanvien'], function(){
 		Route::get('allusers', 'UserController@allUsers');
-		Route::get('suanguoidung/{id}','UserController@suanguoidung');
-		Route::post('suanguoidung/{id}', 'UserController@suapassnguoidung');
+		Route::get(' suanguoidung/{id}','UserController@suanguoidung');
+		//Route::post('suanguoidung/{id}', 'UserController@suapassnguoidung');
 		Route::get('deletenguoidung/{id}', 'UserController@deletenguoidung');
 
 		Route::get('quanlysanpham', ['as' => 'quanlysanpham' , 'uses' => 'SanPhamController@index']);

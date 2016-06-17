@@ -43,7 +43,7 @@
                             <div class="row">
                                 <div class="col-md-2">Nội dung</div>
                                 <div class="form-group col-md-10">
-                                   <textarea type="number" class="form-control" name="new_detail" placeholder="Nhập nội dung">{{ $tintuc->new_detail }}</textarea>
+                                   <textarea class="form-control" name="new_detail" placeholder="Nhập nội dung">{{ $tintuc->new_detail }}</textarea>
                                 </div>
                                
                             </div>

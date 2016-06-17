@@ -10,11 +10,12 @@ use App\Category;
 use App\Order;
 use App\DetailOrder;
 use App\Customer;
+use DB;
 class DonHangController extends Controller
 {
     
     public function quanlydonhang(){
-        $alldonhang = Order::paginate(10);
+        $alldonhang = DB::table('orders')->join('customers', 'orders.customer_id', '=', 'customers.cus_id')->paginate(15);
         return view('backend.donhang.donhang', compact('alldonhang'));
     }
     
@@ -27,7 +28,8 @@ class DonHangController extends Controller
     }
     public function chitietdonhang($id){
         $alldonhang = Order::paginate(10);
-        $chitiet = DetailOrder::where('order_id',$id)->get();
+        $chitiet = DB::table('detailoder')->join('product', 'detailoder.pro_id', '=', 'product.pro_id')->where('order_id', $id)->get();
+
         return view('backend.donhang.chitietdonhang', compact('alldonhang','chitiet'));
     }
     /**

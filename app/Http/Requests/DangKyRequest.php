@@ -25,7 +25,7 @@ class DangKyRequest extends Request
     {
         return [
             'name' => 'required',
-            'email' => 'required|unique:users',
+            'email' => 'required|unique:users,email',
             'password' => 'required',
             'password_confirmation' => 'required|same:password',
         ];

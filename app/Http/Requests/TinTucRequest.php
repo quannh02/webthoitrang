@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class DangNhapRequest extends Request
+class TinTucRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,17 @@ class DangNhapRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required',
-            'password' => 'required',
+            'new_name' => 'required',
+            'new_images' => 'required',
+            'new_detail' => 'required',
         ];
     }
     public function messages()
     {
-        return [
-           'email.required' => 'Bạn vui lòng nhập email',
-           'password.required' => 'Bạn vui lòng nhập mật khẩu'
-        ];
+        return[
+            'new_name.required' => 'Bạn vui lòng nhập tên tin tức',
+            'new_images.required' => 'Bạn vui lòng tải ảnh lên',
+            'new_detail.required' => 'Bạn vui lòng nhập nội dung'
+            ];
     }
 }

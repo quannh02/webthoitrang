@@ -6,7 +6,7 @@
   		<table class="table">
     	<thead>
 	      <tr>
-	        <th>Id</th>
+	        <th>Mã</th>
 	        <th>Danh mục</th>
 	        <th>Sửa/Xóa</th>
 	      </tr>

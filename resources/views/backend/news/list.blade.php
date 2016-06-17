@@ -6,7 +6,6 @@
   		<table class="table">
     	<thead>
 	      <tr>
-	        <th>Id</th>
 	        <th>Tên</th>
 	        <th>Hình</th>
 	        <th>Nội dung</th>
@@ -15,7 +14,6 @@
 	    <tbody>
 	      @foreach($tintucs as $tintuc)
 	      <tr>
-	        <td>{{ $tintuc->new_id }}</td>
 	        <td>{{ $tintuc->new_name }}</td>
 	        <td><img style="height: 100px; width: 75px;" class="img img-responsive" src="{{ url('public/frontend/images', $tintuc->new_images )}}"> 
 	      	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal{{ $tintuc->new_id }}">Xem</button>

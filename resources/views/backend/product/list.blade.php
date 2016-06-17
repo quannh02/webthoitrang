@@ -6,10 +6,9 @@
   		<table class="table">
     	<thead>
 	      <tr>
-	        <th>Id</th>
+	      	<th>Code</th>
 	        <th>Danh mục</th>
 	        <th>Tên</th>
-	        <th>Code</th>
 	        <th>Hình</th>
 	        <th>Giá</th>
 	        <th>Màu</th>
@@ -22,10 +21,10 @@
 	    <tbody>
 	      @foreach($allproducts as $product)
 	      <tr>
-	        <td>{{ $product->pro_id }}</td>
-	        <td>{{ $product->c_id }}</td>
+	      	<td>{{ $product->pro_code }}</td>
+	        <td>{{ $product->c_name }}</td>
 	        <td>{{ $product->pro_name }}</td>
-	        <td>{{ $product->pro_code }}</td>
+	        
 	        <td><img style="height: 100px; width: 75px;" class="img img-responsive" src="{{ url('public/frontend/images', $product->pro_images)}}"> 
 	      	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal{{ $product->pro_code }}">Xem</button>
 	      	
@@ -51,15 +50,30 @@
 		  	</div>
 	        <td>{{ $product->pro_price }}</td>
 	        <td>{{ $product->pro_color }}</td>
-	        <td>{{$product->pro_sizeS>0 ? $product->pro_sizeS.' Cái' : '' }}
+	        <!--<td>{{$product->pro_sizeS>0 ? $product->pro_sizeS.' Cái' : '' }}
+	        </td>-->
+	        <td>
+	        @if($product->pro_sizeS >0)
+	        	{{$product->pro_sizeS }} Cái
+	        @else
+	        Hết hàng
+	        @endif
 	        </td>
 	        <td>
 	        @if($product->pro_sizeM >0)
 	        	{{$product->pro_sizeM }} Cái
 	        @else
-			@endif
+	        Hết hàng
+	        @endif	
 	         </td>
-	        <td>{{ $product->pro_sizeL }} Cái</td>
+	         <td>
+	         @if($product->pro_sizeL >0)
+	        	{{$product->pro_sizeL }} Cái
+	        @else
+	        Hết hàng
+	        @endif
+	         </td>
+	        
 	        <td class=" ">
               <center>
                 <a style="float:left" href="{{ url('suasanpham', $product->pro_id )}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>

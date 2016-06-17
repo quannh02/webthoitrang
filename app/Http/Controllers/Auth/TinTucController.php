@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\TinTucRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\TinTuc;
@@ -15,7 +15,7 @@ class TinTucController extends Controller
         return view('backend.news.them');
     }
 
-    public function postthemtintuc()
+    public function postthemtintuc(TinTucRequest $request)
     {
         $tintuc = new TinTuc;
         $tintuc->new_name   =   Input::get('new_name');
@@ -25,7 +25,7 @@ class TinTucController extends Controller
         // $function = new MyFunction;
         // $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
         $tintuc->new_images = $file->getClientOriginalName();
-        $fileName = $destinationPath . $tintuc->    new_images;
+        $fileName = $destinationPath . $tintuc->new_images;
         //dd($file); die();
         if (Input::hasFile('new_images')) {
             if ($file->isValid()) {

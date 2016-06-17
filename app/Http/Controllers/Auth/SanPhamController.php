@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Category;
 use Input;
 use App\Http\Requests\SanPhamRequest;
-
+use App\Http\Requests\ThemHangRequest;
+use App\Functions;
+use DB;
 class SanPhamController extends Controller
 {
     /**
@@ -19,7 +21,7 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        $allproducts = Product::paginate(20);
+        $allproducts = DB::table('product')->join('category', 'product.c_id', '=', 'category.c_id')->paginate(15);
         return view('backend.product.list', compact('allproducts'));
     }
 
@@ -27,7 +29,7 @@ class SanPhamController extends Controller
         $category = Category::all();
         return view('backend.product.them', compact('category'));
     }
-    public function themsanpham(SanPhamRequest $request){
+    public function themsanpham(ThemHangRequest $request){
         $product = new Product;
         $product->c_id = (int)$request->sltParent;
         //dd($product->c_id); die();
@@ -50,14 +52,14 @@ class SanPhamController extends Controller
         $product->pro_sizeL = $request->pro_sizeL;
         $product->pro_sizeM = $request->pro_sizeM;
         $product->save();
-        return redirect()->route('quanlysanpham');
+        return redirect()->route('quanlysanpham')->with('message', 'Bạn đã thêm thành công');
     }
     public function suasanpham($id){
 
         $product = Product::where('pro_id', $id)->first();
         $cate = Category::where('c_id', $product->c_id)->first();
         $category = Category::all();
-        return view('backend.product.sua', compact('product', 'cate', 'category'));
+        return view('backend.product.sua', compact('product', 'cate', 'category'))->with('message', 'Bạn đã sửa thành công');
     }
 
     public function postsuasanpham(SanPhamRequest $request, $id){
@@ -72,21 +74,23 @@ class SanPhamController extends Controller
         $product->pro_sizeL = $request->pro_sizeL;
         if ($request->hasFile('pro_images')) {
         $file = $request->file('pro_images');
+        //dd($file);
         $destinationPath = base_path(). "/public/frontend/images/";
-        $product->pro_images = $file->getClientOriginalName();
+        $functions = new Functions;
+        $product->pro_images = $functions->stripUnicode($file->getClientOriginalName());
         $fileName = $destinationPath . $product->pro_images;
-        //dd($file); die();
+        //dd($fileName); die();
         
             if ($file->isValid()) {
                 $file->move($destinationPath, $fileName);
             }   
         }
         $product->save();
-        return redirect()->route('quanlysanpham');
+        return redirect()->route('quanlysanpham')->with('message', 'Bạn đã sửa thành công');
     }
     public function deletesanpham($id){
         Product::where('pro_id', $id)->delete();
-        return redirect()->route('quanlysanpham');
+        return redirect()->route('quanlysanpham')->with('message', 'Bạn đã xóa thành công');
     }
     public function timkiem(){
         $q = Input::get('q');

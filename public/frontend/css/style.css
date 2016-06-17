@@ -3851,3 +3851,11 @@ td .imagecart{
 .btn-default{
     background-color: #27E838 !important;
 }
+.proimages img {
+    width: 100%;
+    height: 160px;
+}
+.productName span{
+    width: 500px!important;
+    height: 500px;
+}

@@ -3,7 +3,7 @@
 <h1 class="page-header">Sửa sản phẩm</h1>
                           </div>
                           <!-- /.col-lg-12 -->
-                          <div class="col-sm-8 col-md-8 col-xs-12" style="padding-bottom:120px">
+                          <div class="col-sm-7 col-md-7 col-xs-12" style="padding-bottom:120px">
                           @if(count($errors) > 0)
                               <div class="alert alert-danger">
                                   <ul>
@@ -20,9 +20,8 @@
                             {!! csrf_field() !!}
                             <div class="row form-group">
                                 <div class="col-md-2">Danh mục</div>
-                                <div class="col-md-8">
-                                <p>{{ $cate->c_name }}</p>
-                                <select class="form-control" name="sltParent">
+                                <div class="col-xs-8 col-md-5">
+                                  <select class="form-control" name="sltParent">
                                     @foreach($category as $cate)
                                     <option value="{{ $cate->c_id }}">{{ $cate->c_name }}</option>
                                     @endforeach
@@ -86,7 +85,7 @@
                             <button type="submit" class="btn btn-default">Sửa</button>
                         <form>
                     </div>
-                    <div class="col-md-2 col-sm-8 col-xs-12">
+                    <div class="col-md-3 col-sm-6 col-xs-12 proimages">
                         <img src="{{ url('public/frontend/images', $product->pro_images)}}">
                     </div>
                     </div>
