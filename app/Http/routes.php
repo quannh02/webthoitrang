@@ -58,6 +58,8 @@ Route::group(['namespace' => 'Auth'], function(){
 		Route::get(' suanguoidung/{id}','UserController@suanguoidung');
 		Route::post('suanguoidung/{id}', 'UserController@postsuanguoidung');
 		Route::get('deletenguoidung/{id}', 'UserController@deletenguoidung');
+		Route::get('themnguoidung','UserController@themnguoidung');
+		Route::post('themnguoidung','UserController@postthemnguoidung');
 
 		Route::get('quanlysanpham', ['as' => 'quanlysanpham' , 'uses' => 'SanPhamController@index']);
 		Route::get('themsanpham', 'SanPhamController@viewthemsanpham');

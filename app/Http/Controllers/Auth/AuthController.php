@@ -75,7 +75,7 @@ class AuthController extends Controller
             }
         } else {
             //echo 'fail'; die();
-            return redirect()->route('dangnhap');
+            return redirect()->route('dangnhap')->with('message','Email hoặc password không đúng');
         }
     }
     

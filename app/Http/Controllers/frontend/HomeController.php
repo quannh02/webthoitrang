@@ -27,8 +27,8 @@ class HomeController extends Controller
      public function index()
     {
         $cates = Category::all();
-        $aosominam = Product::where('c_id', 1)->orderBy('pro_id', 'desc')->take(6)->get();
-        $aothunnam = Product::where('c_id', 2)->orderBy('pro_id', 'desc')->take(6)->get();
+        $aosominam = Product::where('c_id', 1)->take(6)->get();
+        $aothunnam = Product::where('c_id', 2)->take(6)->get();
         return view('frontend.pages.index', compact('aosominam', 'aothunnam', 'cates'));
     }
 
@@ -238,7 +238,7 @@ class HomeController extends Controller
     public function timkiem(){
         $cates = Category::all();
         $q = Input::get('q');
-        $products = Product::where('pro_name', '=', trim($q))->orWhere('pro_code', '=',  trim($q))->get();
+        $products = Product::where('pro_name', 'LIKE', '%' . $q . '%')->orWhere('pro_code', 'LIKE',  '%' . $q . '%')->get();
         
         return view('frontend.pages.timkiem', compact('products', 'cates'));
     }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\NguoiDungRequest;
 use App\Http\Requests;
@@ -24,6 +24,7 @@ class UserController extends Controller
     	$user = User::find($id);
     	return view('backend.profile.thongtin', compact('user'));
     }
+
     public function suataikhoan($id){
         $user = User::find($id);
         return view('backend.profile.sua', compact('user'));
@@ -35,8 +36,21 @@ class UserController extends Controller
         $user->save();
         return redirect('thongtintaikhoan/' . $user->user_id);
     }
-
-   
+    public function themnguoidung(){
+        $category = Category::all();
+        return view('backend.user.them', compact('category'));
+    }
+    public function postthemnguoidung(NguoiDungRequest $request){
+        $user = new User;
+        //dd($product->c_id); die();
+        $user->username = $request->username;
+        //dd($user->username);
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->save();
+        return redirect()->route('allusers')->with('message', 'Bạn đã thêm thành công');
+    }
     public function suanguoidung($id)
     {
         $user = User::where('user_id', $id)->get()->first();

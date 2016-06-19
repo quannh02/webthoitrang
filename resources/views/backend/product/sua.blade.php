@@ -45,7 +45,7 @@
                               @if ($errors->has('pro_price'))
                                     <span class="error">{{ $errors->first('pro_price') }}</span>
                                 @endif
-                                <input type="number" class="form-control" name="pro_price" value="{{ $product->pro_price }}" placeholder="Nhập giá sản phẩm">
+                                <input type="text" class="form-control" name="pro_price" value="{{ $product->pro_price }}" placeholder="Nhập giá sản phẩm">
                               </div>
                             </div>
                             <div class="row">

@@ -77,6 +77,7 @@
 .sizechose {
     float: left;
     margin: 15px;
+    width: 40px;
 }
 .add-to-cart {
     float: left;

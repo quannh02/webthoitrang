@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
 <div class="buttonThem">
-	<a href="#" class="btn btn-info" role="button">Thêm user</a></div>
+	<a href="{{ url('themnguoidung') }}" class="btn btn-info" role="button">Thêm người dùng</a></div>
 <div class="table-responsive">          
   		<table class="table">
     	<thead>

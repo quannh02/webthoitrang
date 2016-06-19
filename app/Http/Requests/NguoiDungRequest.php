@@ -26,13 +26,14 @@ class NguoiDungRequest extends Request
         return [
             'username' => 'required',
             'role' => 'required',
-            'email' => 'required'
+            'email' => 'required|email'
         ];
     }
     public function messages(){
         return [
             'username.required' => 'Bạn vui lòng nhập tên người dùng',
             'role.required' => 'Bạn vui lòng nhập đối tượng người dùng',
+            'email.email' => 'Bạn vui lòng nhập đúng định dạng email@example.com',
             'email.required' => 'Bạn vui lòng nhập email người dùng'
         ];
     }

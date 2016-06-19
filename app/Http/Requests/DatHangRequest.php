@@ -26,7 +26,7 @@ class DatHangRequest extends Request
         return [
             'namenguoigui' => 'required',
             'emailnguoigui' => 'required',
-            'sdtnguoigui' => 'required|min:8|max:14',
+            'sdtnguoigui' => 'required|min:10|max:11',
             'addressnguoigui' => 'required',
             'namenguoinhan' => 'required',
             'sdtnguoinhan' => 'required', 
@@ -39,8 +39,9 @@ class DatHangRequest extends Request
             'emailnguoigui.required' => 'Vui lòng nhập email người gửi.',
             'sdtnguoigui.required'=> 'Vui lòng nhập số điện thoại người gửi',
             'addressnguoigui.required' => 'Vui lòng nhập địa chỉ người gửi',
-            'sdtnguoigui.min' => 'Số điện thoại phải lớn hơn 8 ký tự',
-            'sdtnguoigui.max' => 'Số điện thoại phải nhỏ hơn 14 ký tự',
+            'sdtnguoigui.min' => 'Số điện thoại phải lớn hơn 10 ký tự',
+            'sdtnguoigui.max' => 'Số điện thoại phải nhỏ hơn 11 ký tự',
+            'sdtnguoigui.integer' => 'số điện thoại phải là số',
             'namenguoinhan.required'   => 'Vui lòng nhập tên người nhận',
             'sdtnguoinhan.required'   => 'Vui lòng nhập số điện thoại người nhận',
             'addressnguoinhan.required'   => 'Vui lòng nhập địa chỉ người nhận'
