@@ -90,8 +90,7 @@ class HomeController extends Controller
                         'size'      => $size,
                         'image'     => $product->pro_images
                         );
-                    Session::push('giohang', $item);
-                    Session::forget('giohang.' . $index);
+                    Session::put('giohang.' . $index, $item);
                     //dd(Session::get('giohang')[$index]['quantity']++);
                     //echo 'a';
                     //dd(Session::get('giohang')[$index]); die();
@@ -132,8 +131,7 @@ class HomeController extends Controller
                         'size'      => $size,
                         'image'     => $product->pro_images
                         );
-                    Session::push('giohang', $item);
-                    Session::forget('giohang.' . $index);
+                    Session::put('giohang.' . $index, $item);
                     //dd(Session::get('giohang')[$index]['quantity']++);
                     //echo 'a';
                     //dd(Session::get('giohang')[$index]); die();
@@ -161,8 +159,7 @@ class HomeController extends Controller
                         'size'      => $size,
                         'image'     => $product->pro_images
                         );
-                    Session::push('giohang', $item);
-                    Session::forget('giohang.' . $index);
+                    Session::put('giohang.'.  $index, $item);
                 }
                     //dd(Session::get('giohang')[$index]['quantity']++);
                     //echo 'a';
